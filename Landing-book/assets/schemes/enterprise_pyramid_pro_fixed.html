@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Слайд 5: Архитектура Автономного Предприятия BSF</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        body { background-color: #f8fafc; font-family: 'Inter', sans-serif; color: #000; }
+        .mermaid { display: flex; justify-content: center; padding: 20px; }
+        .node rect, .node circle, .node polygon, .node ellipse { cursor: pointer !important; transition: all 0.2s ease !important; }
+        .node:hover rect, .node:hover circle, .node:hover polygon, .node:hover ellipse { filter: brightness(0.9); stroke-width: 5px !important; }
+        .detail-panel {
+            background-color: #fff;
+            border: 4px solid #000;
+            box-shadow: 15px 15px 0px #000;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 100;
+            max-width: 700px;
+            width: 90%;
+        }
+        .overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 90;
+            display: none;
+        }
+    </style>
+</head>
+<body class="p-4">
+    <div class="max-w-full mx-auto">
+        <header class="mb-8 border-b-4 border-black pb-4 text-center">
+            <h1 class="text-3xl font-extrabold uppercase tracking-tighter">Архитектура Автономного Предприятия BSF</h1>
+            <p class="text-sm font-bold text-slate-600 uppercase mt-2">Полномасштабная экосистема управления: от биомассы до стратегии</p>
+        </header>
+
+        <div class="relative">
+            <div class="mermaid">
+                graph BT
+                    %% Стили
+                    classDef ceo fill:#000,stroke:#000,color:#fff,font-weight:bold;
+                    classDef strat fill:#f1f5f9,stroke:#000,stroke-width:3px,font-weight:bold;
+                    classDef biz fill:#e2e8f0,stroke:#000,stroke-width:3px,font-weight:bold;
+                    classDef cpo fill:#dee2ff,stroke:#000,stroke-width:3px,font-weight:bold;
+                    classDef op fill:#fdf2f2,stroke:#000,stroke-width:3px,font-weight:bold;
+                    classDef base fill:#f0fdf4,stroke:#16a34a,stroke-width:3px,font-weight:bold;
+                    classDef static fill:#fff,stroke:#94a3b8,stroke-width:2px,color:#64748b,font-style:italic;
+
+                    %% Вершина
+                    CEO["CEO Агент"]:::ceo
+
+                    %% Стратегический слой
+                    STRAT_PROD["Стратег по продукту"]:::strat
+                    STRAT_TECH["Стратег по R&D"]:::strat
+                    STRAT_INV["Стратег по инвестициям"]:::strat
+
+                    %% Бизнес слой (C-level)
+                    CPO["CPO Агент (Производство)"]:::cpo
+                    CMO["CMO Агент (Маркетинг)"]:::biz
+                    CSO["CSO Агент (Продажи)"]:::biz
+                    CFO["CFO Агент (Финансы)"]:::biz
+                    COO["COO Агент (Операции)"]:::biz
+
+                    %% Операционный слой (Управляющие)
+                    OP_A["Управляющий Блоком A"]:::op
+                    OP_B["Управляющий Блоком B"]:::op
+                    OP_C["Управляющий Блоком C"]:::op
+                    OP_C1["Управляющий Блоком C1"]:::op
+                    OP_D1["Управляющий Блоком D1"]:::op
+                    OP_D2["Управляющий Блоком D2"]:::op
+                    OP_P["Управляющий Блоком P"]:::op
+                    OP_S["Управляющий Блоком S"]:::op
+
+                    %% Статичные управляющие
+                    OP_MAINT["Управляющий ТОиР"]:::static
+                    OP_QA["Управляющий ОТК"]:::static
+                    OP_LOG["Управляющий Складом"]:::static
+
+                    %% Основание (Техпроцесс)
+                    A["Блок A: Кормовая база (3 агента)"]:::base
+                    B["Блок B: Инсектарий (4 агента)"]:::base
+                    C["Блок C: Выращивание (5 агентов)"]:::base
+                    C1["Блок C1: Сбор и Селекция (3 агента)"]:::base
+                    D1["Блок D1: Производство БЛК (3 агента)"]:::base
+                    D2["Блок D2: Производство удобрений (2 агента)"]:::base
+                    P["Блок P: Родительская куколка (2 агента)"]:::base
+                    S["Блок S: Склад-холодильник (3 агента)"]:::base
+
+                    %% Статичные блоки основания
+                    BASE_MAINT["Цех ТОиР"]:::static
+                    BASE_QA["Отдел ОТК"]:::static
+                    BASE_LOG["Склад сырья/продукции"]:::static
+
+                    %% Связи основания -> Управляющие
+                    A --> OP_A
+                    B --> OP_B
+                    C --> OP_C
+                    C1 --> OP_C1
+                    D1 --> OP_D1
+                    D2 --> OP_D2
+                    P --> OP_P
+                    S --> OP_S
+                    BASE_MAINT --> OP_MAINT
+                    BASE_QA --> OP_QA
+                    BASE_LOG --> OP_LOG
+
+                    %% Связи Управляющие -> CPO
+                    OP_A --> CPO
+                    OP_B --> CPO
+                    OP_C --> CPO
+                    OP_C1 --> CPO
+                    OP_D1 --> CPO
+                    OP_D2 --> CPO
+                    OP_P --> CPO
+                    OP_S --> CPO
+                    OP_MAINT --> CPO
+                    OP_QA --> CPO
+                    OP_LOG --> CPO
+
+                    %% Связи C-level
+                    CPO --> STRAT_TECH
+                    CMO --> STRAT_PROD
+                    CSO --> STRAT_PROD
+                    CFO --> STRAT_INV
+                    COO --> STRAT_TECH
+
+                    %% Верхние уровни
+                    STRAT_PROD --> CEO
+                    STRAT_TECH --> CEO
+                    STRAT_INV --> CEO
+                </mermaid>
+            </div>
+        </div>
+
+        <div id="overlay" class="overlay" onclick="closeDetails()"></div>
+
+        <div id="details-panel" class="hidden detail-panel p-6 rounded-none">
+            <div class="flex justify-between items-center mb-6 border-b-2 border-black pb-3">
+                <h2 id="detail-title" class="text-2xl font-extrabold uppercase">Название блока</h2>
+                <button onclick="closeDetails()" class="w-8 h-8 flex items-center justify-center rounded-none border-2 border-black font-bold hover:bg-black hover:text-white transition-colors">&times;</button>
+            </div>
+            <div id="detail-content" class="grid grid-cols-1 gap-6"></div>
+        </div>
+    </div>
+
+    <script>
+        const data = {
+            'A': {
+                title: 'Блок A: Кормовая база',
+                agents: '3 субагента: Агент-дозатор, Агент-очистки, Агент-гомогенизатор',
+                flow: 'Сырьё -> Дозатор -> Магнитный сепаратор -> Вибросито -> Коллоидная мельница -> Коррекция влажности -> Гомогенное пюре',
+                params: 'Фракция: 1-2 мм, Влажность: 70-80%',
+                status: 'Полностью проработано'
+            },
+            'B': {
+                title: 'Блок B: Инсектарий',
+                agents: '4 субагента: Агент условий обитания, Агент-эклозии, Агент по сбору яиц и приманкам, Агент-диспетчер популяции',
+                flow: 'Эклозия -> Спаривание -> Кладка яиц -> Подача в Блок C',
+                params: 'Цикл освещения: 12ч/12ч, автоматическая замена выбывших особей личинками из Блока S',
+                status: 'Частично'
+            },
+            'C': {
+                title: 'Блок C: Выращивание',
+                agents: '5 субагентов: Агент-инкубатор (Руководитель), Агент-климатолог, Агент-CV (Zookeeper), Агент-питания, Агент-аэрации',
+                flow: 'Инкубация -> Ясельник -> Основной откорм -> Сбор биомассы',
+                params: 'T: 28±1°C, Влажн. возд.: 60%, архитектура управления модулями',
+                status: 'Проработано'
+            },
+            'C1': {
+                title: 'Блок C1: Сбор и Селекция',
+                agents: '3 субагента: Агент-сепаратор, Агент-аналитик (Весы), Агент-распределитель',
+                flow: 'Биомасса -> Отсев фраса -> Весовой отбор (5-10%) -> Техзрение -> Распределение',
+                params: 'Критерий: Верхние 5-10% по массе',
+                status: 'Проработано'
+            },
+            'D1': {
+                title: 'Блок D1: Производство БЛК',
+                agents: '3 субагента: Агент-гигиены, Агент-термической обработки, Агент-упаковки',
+                flow: 'Товарная личинка -> Барабанный душ -> Барабанная сушка -> Вертикальный узел -> Вакуумная упаковка',
+                params: 'Результат: Full-Fat Meal (БЛК), тангенциальный обдув',
+                status: 'Проработано'
+            },
+            'D2': {
+                title: 'Блок D2: Производство удобрений',
+                agents: '2 субагента: Агент-гранулятора, Агент-энергетик',
+                flow: 'Фрас -> Вертикальный узел -> Сжигатель -> Смешивание с золой -> Пеллетирование',
+                params: 'Результат: Гранулированное удобрение, замкнутый энергетический цикл (рекуперация)',
+                status: 'Проработано'
+            },
+            'P': {
+                title: 'Блок P: Родительская куколка',
+                agents: '2 субагента: Агент-доращивания, Агент-стабилизатор',
+                flow: 'Отобранная личинка -> Доращивание -> Окукливание -> Склад-холодильник',
+                params: 'Контроль перехода в стадию куколки',
+                status: 'Частично'
+            },
+            'S': {
+                title: 'Блок S: Склад-холодильник',
+                agents: '3 субагента: Агент-криостаза, Агент-отбора (выдача в Блок B), Агент-логистики (передача в Блок D1)',
+                flow: 'Приём куколок -> Стабилизация -> Поэтапный выпуск в Инсектарий / Подача в D1',
+                params: 'T и сроки: в стадии проработки',
+                status: 'Пробел / Зона развития'
+            }
+        };
+
+        function showDetails(id) {
+            const item = data[id];
+            if (!item) return;
+            document.getElementById('detail-title').innerText = item.title;
+            document.getElementById('detail-content').innerHTML = `
+                <div class="space-y-4">
+                    <div class="p-3 border-2 border-black bg-indigo-50">
+                        <strong class="uppercase text-[10px] block mb-1 font-mono">Агентный состав:</strong>
+                        <p class="font-bold text-sm">${item.agents}</p>
+                    </div>
+                    <div class="p-3 border-2 border-black bg-slate-50">
+                        <strong class="uppercase text-[10px] block mb-1 font-mono">Техпроцесс (Поток):</strong>
+                        <p class="font-bold text-sm">${item.flow}</p>
+                    </div>
+                    <div class="p-3 border-2 border-black bg-slate-50">
+                        <strong class="uppercase text-[10px] block mb-1 font-mono">Параметры:</strong>
+                        <p class="font-bold text-sm">${item.params}</p>
+                    </div>
+                    <div class="p-4 border-2 border-black bg-amber-50">
+                        <strong class="uppercase text-[10px] block mb-1 font-mono">Статус проработки:</strong>
+                        <p class="italic text-sm">${item.status}</p>
+                    </div>
+                </div>
+            `;
+            document.getElementById('overlay').style.display = 'block';
+            document.getElementById('details-panel').classList.remove('hidden');
+        }
+
+        function closeDetails() {
+            document.getElementById('overlay').style.display = 'none';
+            document.getElementById('details-panel').classList.add('hidden');
+        }
+
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'base',
+            themeVariables: {
+                primaryColor: '#fff',
+                primaryTextColor: '#000',
+                primaryBorderColor: '#000',
+                lineColor: '#000',
+                edgeLabelBackground: '#fff',
+            }
+        });
+
+        function attachNodeEvents() {
+            const nodes = document.querySelectorAll('.node');
+            if (nodes.length === 0) {
+                setTimeout(attachNodeEvents, 100);
+                return;
+            }
+            nodes.forEach(node => {
+                node.replaceWith(node.cloneNode(true));
+            });
+            document.querySelectorAll('.node').forEach(node => {
+                node.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const text = node.textContent || '';
+                    let id = '';
+                    if (text.includes('Блок C1')) id = 'C1';
+                    else if (text.includes('Блок C')) id = 'C';
+                    else if (text.includes('Блок A')) id = 'A';
+                    else if (text.includes('Блок B')) id = 'B';
+                    else if (text.includes('Блок D1')) id = 'D1';
+                    else if (text.includes('Блок D2')) id = 'D2';
+                    else if (text.includes('Блок P')) id = 'P';
+                    else if (text.includes('Блок S')) id = 'S';
+                    if (id) showDetails(id);
+                });
+            });
+        }
+
+        window.addEventListener('load', () => {
+            setTimeout(attachNodeEvents, 1500);
+        });
+    </script>
+</body>
+</html>

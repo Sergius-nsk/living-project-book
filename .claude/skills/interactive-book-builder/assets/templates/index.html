@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BOOK_TITLE</title>
+    <link rel="stylesheet" href="_shared/shell.css">
+    <link rel="stylesheet" href="cover/cover.css">
+</head>
+<body data-book-title="BOOK_TITLE" data-book-subtitle="BOOK_SUBTITLE">
+
+    <div class="book-container">
+        <!-- Модальные окна глав. Заполняется сборкой из файлов глав: вручную не править. -->
+        <!-- CHAPTER-MODALS:START -->
+        <!-- CHAPTER-MODALS:END -->
+
+        <div id="cover-host"></div>
+        <div class="toc" id="mainTOC"></div>
+    </div>
+
+    <script>
+        // Массив глав. Заполняется сборкой: node scripts/assemble-book.js --write
+        // Вручную не править: изменения затрутся при следующей сборке.
+        window.chaptersData = [
+            /* ASSEMBLE:CHAPTERS */
+        ];
+    </script>
+
+    <script src="cover/cover.js"></script>
+    <script src="_shared/shell.js"></script>
+</body>
+</html>

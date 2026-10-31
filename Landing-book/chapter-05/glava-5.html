@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BSF-фермы | Глава 5</title>
+    <link rel="stylesheet" href="../_shared/shell.css">
+    <link rel="stylesheet" href="../cover/cover.css">
+</head>
+<body data-book-title="Роботизированные BSF-фермы" data-book-subtitle="Трансформация пищевых отходов в высокорентабельный протеин">
+
+    <div class="book-container">
+        <!-- CHAPTER-MODALS:START -->
+<div class="modal-overlay" id="techMapModal" role="dialog" aria-modal="true" aria-labelledby="techMapTitle" onclick="hideModal('techMapModal')">
+            <div class="modal-content" onclick="event.stopPropagation()">
+                <button type="button" class="modal-close" aria-label="Закрыть окно" onclick="hideModal('techMapModal')"></button>
+                <h2 id="techMapTitle" style="margin-top: 0; color: var(--accent-color); text-transform: uppercase; letter-spacing: 1px;">Технологическая карта</h2>
+                <p style="color: var(--text-main); font-size: 1.1rem; margin-bottom: 5px;">Современный техпроцесс BSF-фермы — восемь блоков: от приёма сырья до БЛК, удобрений и склада родительской куколки.</p>
+
+                <div class="bsf-diagram">
+                    <svg viewBox="0 0 840 575" role="img" aria-label="Схема техпроцесса: кормовая база, инсектарий, выращивание, сбор и отбор, производство БЛК и удобрений, родительская куколка, склад-холодильник">
+                        <defs>
+                            <marker id="tmArrow" markerWidth="10" markerHeight="8" refX="8" refY="4" orient="auto">
+                                <path d="M0,0 L10,4 L0,8 Z" fill="#9aa0a6"/>
+                            </marker>
+                        </defs>
+
+                        <g stroke="#9aa0a6" stroke-width="1.2" marker-end="url(#tmArrow)">
+                            <line x1="125" y1="112" x2="380" y2="174"/>
+                            <line x1="695" y1="112" x2="468" y2="174"/>
+                            <line x1="380" y1="250" x2="268" y2="314"/>
+                            <line x1="462" y1="250" x2="544" y2="314"/>
+                            <line x1="235" y1="382" x2="165" y2="449"/>
+                            <line x1="270" y1="382" x2="395" y2="449"/>
+                            <line x1="520" y1="486" x2="616" y2="486"/>
+                            <polyline points="720,455 720,112" fill="none"/>
+                            <path d="M 558 382 C 558 414, 610 414, 610 382" fill="none" stroke-dasharray="4 4"/>
+                        </g>
+
+                        <g fill="#9aa0a6" font-size="9" text-anchor="middle" style="paint-order: stroke; stroke: #050506; stroke-width: 3px; stroke-linejoin: round;">
+                            <text x="232" y="142">КОРМ (ПЮРЕ)</text>
+                            <text x="600" y="140">ЯЙЦО</text>
+                            <text x="300" y="288">ЛИЧИНКА</text>
+                            <text x="520" y="288">ФРАСС (ЗООГУМУС)</text>
+                            <text x="170" y="420">ТОВАРНАЯ ЛИЧИНКА</text>
+                            <text x="355" y="420">ПЛЕМЕННАЯ ЛИНИЯ</text>
+                            <text x="566" y="478">КУКОЛКА → СКЛАД</text>
+                            <text transform="translate(734,300) rotate(-90)" text-anchor="middle">СКЛАД → ИНСЕКТАРИЙ</text>
+                            <text x="584" y="432">РЕКУПЕРАЦИЯ ТЕПЛА</text>
+                        </g>
+
+                        <g>
+                            <rect x="30" y="50" width="190" height="62" rx="10" fill="rgba(163,255,71,0.08)" stroke="#a3ff47" stroke-width="1.6"/>
+                            <text x="125" y="76" text-anchor="middle" fill="#e0e0e0" font-size="13" font-weight="700">Блок A</text>
+                            <text x="125" y="94" text-anchor="middle" fill="#9aa0a6" font-size="10.5">Кормовая база</text>
+
+                            <rect x="600" y="50" width="190" height="62" rx="10" fill="rgba(255,179,71,0.08)" stroke="#ffb347" stroke-width="1.6"/>
+                            <text x="695" y="76" text-anchor="middle" fill="#e0e0e0" font-size="13" font-weight="700">Блок B</text>
+                            <text x="695" y="94" text-anchor="middle" fill="#9aa0a6" font-size="10.5">Инсектарий</text>
+
+                            <rect x="320" y="180" width="200" height="70" rx="10" fill="rgba(163,255,71,0.08)" stroke="#a3ff47" stroke-width="1.6"/>
+                            <text x="420" y="206" text-anchor="middle" fill="#e0e0e0" font-size="13" font-weight="700">Блок C</text>
+                            <text x="420" y="224" text-anchor="middle" fill="#9aa0a6" font-size="10.5">Выращивание</text>
+                            <text x="420" y="240" text-anchor="middle" fill="#9aa0a6" font-size="10">28 °C / 60 %</text>
+
+                            <rect x="150" y="320" width="170" height="62" rx="10" fill="rgba(163,255,71,0.08)" stroke="#a3ff47" stroke-width="1.6"/>
+                            <text x="235" y="346" text-anchor="middle" fill="#e0e0e0" font-size="13" font-weight="700">Блок C1</text>
+                            <text x="235" y="364" text-anchor="middle" fill="#9aa0a6" font-size="10.5">Сбор и отбор</text>
+
+                            <rect x="480" y="320" width="180" height="62" rx="10" fill="rgba(163,255,71,0.08)" stroke="#a3ff47" stroke-width="1.6"/>
+                            <text x="570" y="346" text-anchor="middle" fill="#e0e0e0" font-size="13" font-weight="700">Блок D2</text>
+                            <text x="570" y="364" text-anchor="middle" fill="#9aa0a6" font-size="10.5">Удобрения</text>
+
+                            <rect x="40" y="455" width="190" height="62" rx="10" fill="rgba(163,255,71,0.08)" stroke="#a3ff47" stroke-width="1.6"/>
+                            <text x="135" y="481" text-anchor="middle" fill="#e0e0e0" font-size="13" font-weight="700">Блок D1</text>
+                            <text x="135" y="499" text-anchor="middle" fill="#9aa0a6" font-size="10.5">Производство БЛК</text>
+
+                            <rect x="330" y="455" width="190" height="62" rx="10" fill="rgba(255,179,71,0.08)" stroke="#ffb347" stroke-width="1.6"/>
+                            <text x="425" y="481" text-anchor="middle" fill="#e0e0e0" font-size="13" font-weight="700">Блок P</text>
+                            <text x="425" y="499" text-anchor="middle" fill="#9aa0a6" font-size="10.5">Родительская куколка</text>
+
+                            <rect x="620" y="455" width="200" height="62" rx="10" fill="rgba(255,255,255,0.03)" stroke="#7d8288" stroke-width="1.6" stroke-dasharray="5 5"/>
+                            <text x="720" y="481" text-anchor="middle" fill="#e0e0e0" font-size="13" font-weight="700">Блок S</text>
+                            <text x="720" y="499" text-anchor="middle" fill="#9aa0a6" font-size="10.5">Склад-холодильник</text>
+                        </g>
+
+                        <g font-size="9.5" fill="#9aa0a6">
+                            <rect x="40" y="545" width="12" height="12" rx="2" fill="rgba(163,255,71,0.12)" stroke="#a3ff47"/>
+                            <text x="60" y="555">Проработано</text>
+                            <rect x="170" y="545" width="12" height="12" rx="2" fill="rgba(255,179,71,0.12)" stroke="#ffb347"/>
+                            <text x="190" y="555">Частично</text>
+                            <rect x="290" y="545" width="12" height="12" rx="2" fill="rgba(255,255,255,0.03)" stroke="#7d8288" stroke-dasharray="3 3"/>
+                            <text x="310" y="555">Пробел</text>
+                        </g>
+                    </svg>
+                </div>
+
+                <div class="bsf-facts" style="margin-top: 20px;">
+                    <div class="bsf-fact">
+                        <strong>Кормовая база</strong>
+                        <div>Дозатор → магнитный сепаратор → вибросито → коллоидная мельница → коррекция влажности. Фракция 1–2 мм, влажность 70–80%.</div>
+                    </div>
+                    <div class="bsf-fact">
+                        <strong>Выращивание</strong>
+                        <div>Инкубация → ясельник → основной откорм → сбор биомассы. 28 ± 1 °C, влажность воздуха 60%, архитектура «матрёшка», четыре контура управления.</div>
+                    </div>
+                    <div class="bsf-fact">
+                        <strong>Сбор и отбор</strong>
+                        <div>Отсев фрасса, весовой отбор верхних 5–10% по массе, техзрение, распределение по назначению.</div>
+                    </div>
+                </div>
+
+                <div style="margin-top: 20px; padding: 20px; border-radius: 15px; background: rgba(255,179,71,0.06); border-left: 3px solid #ffb347;">
+                    <strong style="color: #ffb347;">Критический пробел:</strong> склад-холодильник родительской куколки — температура и сроки хранения не определены.
+                </div>
+
+                <p style="color: var(--text-dim); font-size: 0.82rem; margin-top: 20px;">Схема соответствует технологической карте проекта: блоки A, C, C1, D1, D2 проработаны, B и P — частично, S — пробел.</p>
+            </div>
+        </div>
+
+<div class="modal-overlay" id="blkCostModal" role="dialog" aria-modal="true" aria-labelledby="blkCostTitle" onclick="hideModal('blkCostModal')">
+            <div class="modal-content" onclick="event.stopPropagation()">
+                <button type="button" class="modal-close" aria-label="Закрыть окно" onclick="hideModal('blkCostModal')"></button>
+                <h2 id="blkCostTitle" style="margin-top: 0; color: var(--accent-color); text-transform: uppercase; letter-spacing: 1px;">Цена БЛК и доля ФОТ</h2>
+                <p style="color: var(--text-main); font-size: 1.1rem; margin-bottom: 5px;">Расчёт из бизнес-плана NEYTAN (Беларусь): как меняется себестоимость БЛК, если убрать ручной труд.</p>
+                <p style="color: var(--text-dim); font-size: 0.9rem; margin-bottom: 20px;">Модель разработана командой NEYTAN. Сергей и Глеб вели селекцию BSF, чтобы вывести продукт на цену рыбной муки; цель не была достигнута. Поэтому цифры отражают реальную границу традиционной технологии, а не оптимистичный сценарий.</p>
+
+                <div class="compare-wrap">
+                    <table class="compare-table">
+                        <thead>
+                            <tr>
+                                <th>Показатель</th>
+                                <th>Традиционная модель</th>
+                                <th>Без ФОТ</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Персонал в техпроцессе</td>
+                                <td>12 человек</td>
+                                <td>0 человек</td>
+                            </tr>
+                            <tr>
+                                <td>Доля ФОТ в OPEX</td>
+                                <td>52,5%</td>
+                                <td>0%</td>
+                            </tr>
+                            <tr>
+                                <td>Себестоимость 1 кг БЛК</td>
+                                <td>201,3 ₽</td>
+                                <td>95,7 ₽</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="cost-compare" style="margin-top: 15px;">
+                    <div class="cost-row">
+                        <div class="cost-label">Традиционный BSF</div>
+                        <div class="cost-track"><div class="cost-fill red" style="width: 100%;">201 ₽</div></div>
+                    </div>
+                    <div class="cost-row">
+                        <div class="cost-label">Рыбная мука</div>
+                        <div class="cost-track"><div class="cost-fill gray" style="width: 70%;">140 ₽</div></div>
+                    </div>
+                    <div class="cost-row">
+                        <div class="cost-label">БЛК без ФОТ</div>
+                        <div class="cost-track"><div class="cost-fill green" style="width: 48%;">96 ₽</div></div>
+                    </div>
+                </div>
+
+                <div style="margin-top: 25px; padding: 20px; border-radius: 15px; background: rgba(255,255,255,0.03); border-left: 3px solid var(--accent-color);">
+                    <strong style="color: var(--accent-color);">Экономический эффект:</strong> экономия на ФОТ — 11,52 млн ₽ в год, снижение себестоимости — на 52,8%.
+                </div>
+
+                <p style="color: var(--text-dim); font-size: 0.85rem; margin-top: 20px;">Расчёт на 1000 кг сухой личинки в сутки. Цены — в уровне на дату разработки бизнес-плана. 95,7 ₽ — расчётный сценарий при нулевом ФОТ, а не подтверждённая себестоимость: его предстоит проверить на прототипе.</p>
+            </div>
+        </div>
+
+<div class="modal-overlay" id="automationCostModal" role="dialog" aria-modal="true" aria-labelledby="automationCostTitle" onclick="hideModal('automationCostModal')">
+            <div class="modal-content" onclick="event.stopPropagation()">
+                <button type="button" class="modal-close" aria-label="Закрыть окно" onclick="hideModal('automationCostModal')"></button>
+                <h2 id="automationCostTitle" style="margin-top: 0; color: var(--accent-color); text-transform: uppercase; letter-spacing: 1px;">Автоматизация вокруг старой технологии</h2>
+                <p style="color: var(--text-main); font-size: 1.1rem; margin-bottom: 20px;">Роботы, конвейеры и автоматизированные линии сами по себе не убирают причину затрат: они надстраиваются над прежней производственной единицей — лотком.</p>
+
+                <div class="bsf-facts">
+                    <div class="bsf-fact">
+                        <strong>Растёт CAPEX</strong>
+                        <div>Промышленные манипуляторы, шаттлы, конвейерные линии, системы управления и их интеграция в существующее здание. Чем больше капитала вложено, тем длиннее срок окупаемости.</div>
+                    </div>
+                    <div class="bsf-fact">
+                        <strong>Растут вторичные OPEX</strong>
+                        <div>Обслуживание и ремонт роботов и линий, запчасти, наладка, программирование, простои, персонал для обслуживания автоматики. Эти расходы появляются вместо сэкономленного ФОТ.</div>
+                    </div>
+                    <div class="bsf-fact">
+                        <strong>Эффект съедается</strong>
+                        <div>Экономия на фонде оплаты труда частично уходит на новые капитальные и операционные расходы, поэтому цена БЛК не обязательно выходит на уровень рыбной муки.</div>
+                    </div>
+                </div>
+
+                <div style="margin-top: 25px; padding: 20px; border-radius: 15px; background: rgba(255,255,255,0.03); border-left: 3px solid var(--accent-color);">
+                    <strong style="color: var(--accent-color);">Формула эффекта:</strong> экономия ФОТ − CAPEX на автоматизацию − обслуживание автоматики.
+                </div>
+
+                <div style="margin-top: 15px; padding: 20px; border-radius: 15px; background: rgba(255,255,255,0.03); border-left: 3px solid var(--accent-color);">
+                    <strong style="color: var(--accent-color);">Вывод:</strong> автоматизировать нужно не операции вокруг лотка, а саму производственную единицу — так, чтобы новая технология была автоматизируемой по своей конструкции.
+                </div>
+
+                <p style="color: var(--text-dim); font-size: 0.85rem; margin-top: 20px;">Оценка проекта, а не измеренный результат; проверяется на прототипе.</p>
+            </div>
+        </div>
+
+<div class="modal-overlay" id="scaleModal" role="dialog" aria-modal="true" aria-labelledby="scaleTitle" onclick="hideModal('scaleModal')">
+            <div class="modal-content" onclick="event.stopPropagation()">
+                <button type="button" class="modal-close" aria-label="Закрыть окно" onclick="hideModal('scaleModal')"></button>
+                <h2 id="scaleTitle" style="margin-top: 0; color: var(--accent-color); text-transform: uppercase; letter-spacing: 1px;">Больше — не значит дешевле</h2>
+                <p style="color: var(--text-main); font-size: 1.1rem; margin-bottom: 5px;">В нефтепереработке логика простая: чем крупнее завод, тем ниже удельные затраты. В BSF эта логика не срабатывает.</p>
+                <p style="color: var(--text-dim); font-size: 0.9rem; margin-bottom: 5px;">Масштабируется не химический реактор, а количество лотков с живым субстратом. Вместе с ними растут логистика, климатизация, риск саморазогрева и нагрузка на сушку, а узкие места — репродукция и сушка — от размера цеха не исчезают.</p>
+
+                <div class="compare-wrap">
+                    <table class="compare-table">
+                        <thead>
+                            <tr>
+                                <th>Компания</th>
+                                <th>Масштаб</th>
+                                <th>Что показал опыт</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Ÿnsect, Франция (мучной хрущак)</td>
+                                <td>гигафабрика 48 000 м², привлечено более $600 млн</td>
+                                <td>выручка €17,8 млн (2021) при убытке €79,7 млн (2023); процедура защиты в 2024, ликвидация в декабре 2025</td>
+                            </tr>
+                            <tr>
+                                <td>Agronutris, Франция</td>
+                                <td>проект около 15 тыс. т ингредиентов, завод на 70 тыс. т отходов в год, оборудование Bühler</td>
+                                <td>процедура защиты в январе 2025, спасение с €10 млн; риск длительного выхода на мощность</td>
+                            </tr>
+                            <tr>
+                                <td>ENORM, Дания</td>
+                                <td>крупная автоматизированная фабрика</td>
+                                <td>работа прекращена в 2025 году</td>
+                            </tr>
+                            <tr>
+                                <td>Protix, Нидерланды</td>
+                                <td>действующий автоматизированный завод</td>
+                                <td>расширение в Польше и совместное предприятие с Tyson поставлены на паузу</td>
+                            </tr>
+                            <tr>
+                                <td>Entobel, Вьетнам</td>
+                                <td>10 тыс. т белка в год, 50 уровней</td>
+                                <td>работает в связке с тёплым климатом, сырьевой базой и рынком аквакормов; раунд $33 млн не равен CAPEX завода</td>
+                            </tr>
+                            <tr>
+                                <td>Bühler, Швейцария</td>
+                                <td>поставщик сквозных линий, центр insect technology в Уцвиле; проекты Protix, Agronutris, Agroloop в Венгрии</td>
+                                <td>узким местом масштабирования называет не размер цеха, а стабильное производство молодняка; минимально рентабельный масштаб — 50–150 т субстрата в сутки, выраженный эффект масштаба — 200–500 т</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p style="color: var(--text-dim); font-size: 0.82rem; margin-top: 4px;">Ÿnsect работает с мучным хрущаком, остальные — с BSF; класс проектов и логика масштабирования те же. Мощности — проектные или заявленные.</p>
+
+                <div style="margin-top: 20px; padding: 20px; border-radius: 15px; background: rgba(255,255,255,0.03); border-left: 3px solid var(--accent-color);">
+                    <strong style="color: var(--accent-color);">Отраслевой счёт:</strong> к концу 2024 года в производство насекомых публично вложено около 2 млрд долларов; компании, на которые приходилось примерно 37% этих инвестиций, уже испытывали сложности или прекратили работу. Раскрытое финансирование сектора упало с 306 млн долларов за 2023 год до 64 млн за первое полугодие 2024 года.
+                </div>
+
+                <div style="margin-top: 15px; padding: 20px; border-radius: 15px; background: rgba(255,255,255,0.03); border-left: 3px solid var(--accent-color);">
+                    <strong style="color: var(--accent-color);">Вывод:</strong> масштаб начинает работать только после того, как подтверждена экономика единицы. Сначала — повторяемая производственная единица с проверенными KPI, затем тиражирование.
+                </div>
+
+                <p style="color: var(--text-dim); font-size: 0.82rem; margin-top: 20px;">Источники: <a href="https://www.reuters.com/business/frances-ynsect-files-safeguard-plan-lack-cash-2024-09-26/" target="_blank" rel="noopener noreferrer" style="color: var(--accent-color); text-decoration: underline;">Reuters: Ÿnsect — защитная процедура (2024)</a>; <a href="https://techcrunch.com/2025/12/26/how-reality-crushed-ynsect-the-french-startup-that-had-raised-over-600m-for-insect-farming/" target="_blank" rel="noopener noreferrer" style="color: var(--accent-color); text-decoration: underline;">TechCrunch: ликвидация Ÿnsect (2025)</a>; <a href="https://www.buhlergroup.com/global/en/media/media-releases/buehler_and_entocyclepartnertodeliverend-to-endtechnologysolutio.html" target="_blank" rel="noopener noreferrer" style="color: var(--accent-color); text-decoration: underline;">Bühler и Entocycle: партнёрство (2023)</a>; <a href="https://www.feedandadditive.com/buhler-nrgene-canada-partnership-reshapes-the-insect-based-protein-industry/" target="_blank" rel="noopener noreferrer" style="color: var(--accent-color); text-decoration: underline;">Bühler: оценка рентабельного масштаба</a>; <a href="https://agfundernews.com/insect-ag-recalibrates-after-a-brutal-shakeout-where-are-the-key-players-now" target="_blank" rel="noopener noreferrer" style="color: var(--accent-color); text-decoration: underline;">AgFunderNews: состояние отрасли</a>.</p>
+            </div>
+        </div>
+
+<div class="modal-overlay" id="verticalModal" role="dialog" aria-modal="true" aria-labelledby="verticalTitle" onclick="hideModal('verticalModal')">
+            <div class="modal-content" onclick="event.stopPropagation()">
+                <button type="button" class="modal-close" aria-label="Закрыть окно" onclick="hideModal('verticalModal')"></button>
+                <h2 id="verticalTitle" style="margin-top: 0; color: var(--accent-color); text-transform: uppercase; letter-spacing: 1px;">Вертикальные фабрики: экономия на земле</h2>
+                <p style="color: var(--text-main); font-size: 1.1rem; margin-bottom: 5px;">Завод Entobel во Вьетнаме — 50 уровней выращивания, заявленные 10 тыс. т белка в год, запуск в ноябре 2023 года. Площадка компактная, но высота создаёт климатическую задачу.</p>
+
+                <div class="bsf-diagram">
+                    <svg viewBox="0 0 840 270" role="img" aria-label="Разрез вертикальной BSF-фабрики: ярусы лотков и климатический градиент по высоте">
+                        <defs>
+                            <marker id="vmArrow" markerWidth="10" markerHeight="8" refX="8" refY="4" orient="auto">
+                                <path d="M0,0 L10,4 L0,8 Z" fill="#ffb347"/>
+                            </marker>
+                            <linearGradient id="vmGrad" x1="0" y1="0" x2="0" y2="1">
+                                <stop offset="0%" stop-color="#ffb347" stop-opacity="0.85"/>
+                                <stop offset="100%" stop-color="#6f8fa8" stop-opacity="0.85"/>
+                            </linearGradient>
+                        </defs>
+
+                        <text x="60" y="18" fill="#9aa0a6" font-size="11">Вертикальная фабрика: десятки ярусов лотков</text>
+
+                        <rect x="60" y="30" width="300" height="210" rx="8" fill="rgba(255,255,255,0.02)" stroke="#7d8288" stroke-width="1.2"/>
+
+                        <g fill="rgba(163,255,71,0.12)" stroke="#a3ff47" stroke-width="1">
+                            <rect x="85" y="48" width="250" height="12" rx="2"/>
+                            <rect x="85" y="78" width="250" height="12" rx="2"/>
+                            <rect x="85" y="108" width="250" height="12" rx="2"/>
+                            <rect x="85" y="138" width="250" height="12" rx="2"/>
+                            <rect x="85" y="168" width="250" height="12" rx="2"/>
+                            <rect x="85" y="198" width="250" height="12" rx="2"/>
+                        </g>
+
+                        <g stroke="#ffb347" stroke-width="2" marker-end="url(#vmArrow)">
+                            <line x1="395" y1="225" x2="395" y2="65"/>
+                            <line x1="415" y1="225" x2="415" y2="65"/>
+                        </g>
+                        <g fill="#ffb347" font-size="11">
+                            <text x="440" y="140">тёплый воздух</text>
+                            <text x="440" y="156">и саморазогрев</text>
+                            <text x="440" y="172">поднимаются вверх</text>
+                        </g>
+
+                        <rect x="640" y="40" width="36" height="200" rx="4" fill="url(#vmGrad)"/>
+                        <g font-size="11">
+                            <text x="690" y="56" fill="#ffb347">верхние ярусы:</text>
+                            <text x="690" y="72" fill="#ffb347">теплее</text>
+                            <text x="690" y="222" fill="#8fb3cc">нижние ярусы:</text>
+                            <text x="690" y="238" fill="#8fb3cc">холоднее, влажнее</text>
+                        </g>
+                    </svg>
+                </div>
+
+                <div class="bsf-facts" style="margin-top: 15px;">
+                    <div class="bsf-fact">
+                        <strong>Что меняется по высоте</strong>
+                        <div>Температура, влажность, скорость воздуха и содержание CO₂ на разных ярусах различаются: тёплый воздух и тепло от субстрата поднимаются вверх.</div>
+                    </div>
+                    <div class="bsf-fact">
+                        <strong>Что происходит с личинкой</strong>
+                        <div>Разные условия дают разную скорость роста. Партии на верхних и нижних ярусах созревают неодновременно, выравнивать их сложнее, выход и качество расходятся.</div>
+                    </div>
+                    <div class="bsf-fact">
+                        <strong>Чем платят за экономию</strong>
+                        <div>Климатические системы усложняются: зонирование, распределение воздуха, датчики, обслуживание. Экономия на участке переходит в CAPEX и OPEX климата.</div>
+                    </div>
+                </div>
+
+                <div style="margin-top: 25px; padding: 20px; border-radius: 15px; background: rgba(255,255,255,0.03); border-left: 3px solid var(--accent-color);">
+                    <strong style="color: var(--accent-color);">Вывод:</strong> вертикальная компоновка не отменяет затраты, а переносит их с земельного участка на климатические системы и их обслуживание.
+                </div>
+
+                <p style="color: var(--text-dim); font-size: 0.82rem; margin-top: 20px;">Конкретные параметры градиента на заводе Entobel публично не раскрыты; схема показывает общий эффект многоярусных систем. Источники: <a href="https://www.entobel.com/en/entobel-grand-opening-of-the-largest-insect-protein-production-plant-in-asia/" target="_blank" rel="noopener noreferrer" style="color: var(--accent-color); text-decoration: underline;">Entobel: открытие завода (2023)</a>; <a href="https://www.entobel.com/en/production-sites/" target="_blank" rel="noopener noreferrer" style="color: var(--accent-color); text-decoration: underline;">Entobel: производственные площадки</a>.</p>
+            </div>
+        </div>
+        <!-- CHAPTER-MODALS:END -->
+        <div id="cover-host"></div>
+        <div class="toc" id="mainTOC"></div>
+    </div>
+
+    <!-- CHAPTER-DATA:START -->
+    <!-- Данные главы: единственный источник правды. Их читают страница главы и сборка книги.
+         order — порядок в книге (можно ставить 3.5, чтобы вставить главу между 3 и 4). -->
+    <script type="application/json" id="chapter-data">
+    {
+      "order": 5,
+      "title": {
+        "text": "Проблемы внутри современного техпроцесса ферм BSF.",
+        "links": [
+          {
+            "label": "современного техпроцесса",
+            "modal": "techMapModal"
+          }
+        ]
+      },
+      "ready": true,
+      "content": [
+        {
+          "title": "",
+          "theses": [
+            {
+              "text": "Первая проблема очевидна – много ручного труда. Решение – сокращение ФОТ путём автоматизации всего производства. Это сразу делает цену БЛК конкурентной с рыбной мукой.",
+              "links": [
+                {
+                  "label": "конкурентной",
+                  "modal": "blkCostModal"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "",
+          "theses": [
+            {
+              "text": "Как ни странно, самой по себе автоматизации не достаточно для снижения себестоимости БЛК.",
+              "links": [
+                {
+                  "label": "не достаточно",
+                  "modal": "automationCostModal"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "",
+          "theses": [
+            {
+              "text": "Масштабирование BSF-ферм в большую сторону не приводит к улучшению показателей бизнеса.",
+              "links": [
+                {
+                  "label": "в большую сторону",
+                  "modal": "scaleModal"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "",
+          "theses": [
+            {
+              "text": "Новые вертикальные архитектурные решения для сокращения стоимости земельного участка тоже не дают желаемого результата.",
+              "links": [
+                {
+                  "label": "вертикальные",
+                  "modal": "verticalModal"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+    <!-- CHAPTER-DATA:END -->
+
+    <script src="../cover/cover.js"></script>
+    <script src="../_shared/shell.js"></script>
+</body>
+</html>

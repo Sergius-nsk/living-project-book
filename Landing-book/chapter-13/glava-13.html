@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BSF-фермы | Глава 13</title>
+    <link rel="stylesheet" href="../_shared/shell.css">
+    <link rel="stylesheet" href="../cover/cover.css">
+</head>
+<body data-book-title="Роботизированные BSF-фермы" data-book-subtitle="Трансформация пищевых отходов в высокорентабельный протеин">
+
+    <div class="book-container">
+        <!-- CHAPTER-MODALS:START -->
+<div class="modal-overlay" id="ch13MissionModal" role="dialog" aria-modal="true" aria-labelledby="ch13MissionTitle" onclick="hideModal('ch13MissionModal')">
+            <div class="modal-content" onclick="event.stopPropagation()">
+                <button type="button" class="modal-close" aria-label="Закрыть окно" onclick="hideModal('ch13MissionModal')"></button>
+                <h2 id="ch13MissionTitle" style="margin-top: 0; color: var(--accent-color); font-size: 1.45rem; letter-spacing: 0.4px;">Миссия проекта</h2>
+                <p style="color: var(--text-main); font-size: 1.1rem; margin-top: 10px;">Защищать нашу планету от накопления отходов, возвращая ценные ресурсы в природный цикл и помогая человечеству обеспечивать себя продовольствием.</p>
+            </div>
+        </div>
+
+<div class="modal-overlay" id="ch13MarketModal" role="dialog" aria-modal="true" aria-labelledby="ch13MarketTitle" onclick="hideModal('ch13MarketModal')">
+            <div class="modal-content" onclick="event.stopPropagation()">
+                <button type="button" class="modal-close" aria-label="Закрыть окно" onclick="hideModal('ch13MarketModal')"></button>
+                <h2 id="ch13MarketTitle" style="margin-top: 0; color: var(--accent-color); font-size: 1.45rem; letter-spacing: 0.4px;">Рыночный потенциал</h2>
+                <p style="color: var(--text-main); font-size: 1.05rem; margin: 10px 0;">Прогнозы оценивают мировой рынок BSF в 3,96 млрд долларов к 2033 году со среднегодовым ростом около 30,5%. Это прогнозы, а не факт, но тренд на замещение рыбной муки и сои устойчив.</p>
+                <div class="compare-wrap">
+                    <table class="compare-table">
+                        <thead>
+                            <tr><th>Прогноз</th><th>Рынок к 2033</th><th>CAGR</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Meticulous Research, 2022</td><td>3,96 млрд $</td><td>30,5% (2022–2033)</td></tr>
+                            <tr><td>Meticulous Research, 2024</td><td>3,96 млрд $</td><td>31,0% (2024–2033)</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p style="color: var(--text-dim); font-size: 0.82rem; margin-top: 10px;">Сумма в обновлённом прогнозе сохранена, уточнён период и темп роста. Это рыночные оценки, а не гарантия.</p>
+                <p style="color: var(--text-dim); font-size: 0.82rem; margin-top: 10px;">Источники: <a href="https://www.prnewswire.com/news-releases/black-soldier-fly-market-is-expected-to-grow-at-a-cagr-of-30-5-from-2022-to-2033-to-reach-3-96-billion-by-2033--exclusive-report-by-meticulous-research-301581396.html" target="_blank" rel="noopener noreferrer" style="color: var(--accent-color); text-decoration: underline;">Meticulous Research, 2022 (PR Newswire)</a>; <a href="https://www.prnewswire.com/news-releases/black-soldier-fly-market-is-expected-to-reach-3-96-billion-by-2033---exclusive-report-by-meticulous-research-302134904.html" target="_blank" rel="noopener noreferrer" style="color: var(--accent-color); text-decoration: underline;">обновление 2024 (PR Newswire)</a>.</p>
+            </div>
+        </div>
+
+<div class="modal-overlay" id="ch13MarketEntryModal" role="dialog" aria-modal="true" aria-labelledby="ch13MarketEntryTitle" onclick="hideModal('ch13MarketEntryModal')">
+            <div class="modal-content" onclick="event.stopPropagation()">
+                <button type="button" class="modal-close" aria-label="Закрыть окно" onclick="hideModal('ch13MarketEntryModal')"></button>
+                <h2 id="ch13MarketEntryTitle" style="margin-top: 0; color: var(--accent-color); font-size: 1.45rem; letter-spacing: 0.4px;">Быстрый выход на рынок</h2>
+                <p style="color: var(--text-main); font-size: 1.1rem; margin-top: 10px;">Уже на второй итерации инвестирования — готовый контейнер-робот для выращивания личинки, источника БЛК.</p>
+            </div>
+        </div>
+
+<div class="modal-overlay" id="ch13EarlyStageModal" role="dialog" aria-modal="true" aria-labelledby="ch13EarlyStageTitle" onclick="hideModal('ch13EarlyStageModal')">
+            <div class="modal-content" onclick="event.stopPropagation()">
+                <button type="button" class="modal-close" aria-label="Закрыть окно" onclick="hideModal('ch13EarlyStageModal')"></button>
+                <h2 id="ch13EarlyStageTitle" style="margin-top: 0; color: var(--accent-color); font-size: 1.45rem; letter-spacing: 0.4px;">Ранняя стадия</h2>
+                <p style="color: var(--text-main); font-size: 1.05rem; margin-top: 10px;">Биткоин тоже не сразу «взлетел до небес». Конечно, это не биткоин, но и не «фабрика по производству табуреток…» — как упоминал Кирилл Пшинник в одном из своих вебинаров.</p>
+            </div>
+        </div>
+
+<div class="modal-overlay" id="ch13ConfidenceModal" role="dialog" aria-modal="true" aria-labelledby="ch13ConfidenceTitle" onclick="hideModal('ch13ConfidenceModal')">
+            <div class="modal-content" onclick="event.stopPropagation()">
+                <button type="button" class="modal-close" aria-label="Закрыть окно" onclick="hideModal('ch13ConfidenceModal')"></button>
+                <h2 id="ch13ConfidenceTitle" style="margin-top: 0; color: var(--accent-color); font-size: 1.45rem; letter-spacing: 0.4px;">Почему я уверен</h2>
+                <p style="color: var(--text-main); font-size: 1.05rem; margin: 10px 0;">Это проект — результат анализа перспективного бизнеса во всей его внутренней составляющей.</p>
+                <p style="color: var(--text-main); font-size: 1.05rem; margin: 10px 0;">Елена (выпускница Зерокодера, которую Кирилл приглашал на один из своих вебинаров) так делает в своей ИИ-студии с офисными бизнес-процессами.</p>
+                <p style="color: var(--text-main); font-size: 1.05rem; margin: 10px 0;">Мы погружаемся внутрь техпроцесса в реальном секторе экономики, проводим его анализ/экспертизу и модифицируем его под роботизацию по связке «техпроцесс — оборудование для его реализации».</p>
+            </div>
+        </div>
+
+<div class="modal-overlay" id="ch13LikeMindedModal" role="dialog" aria-modal="true" aria-labelledby="ch13LikeMindedTitle" onclick="hideModal('ch13LikeMindedModal')">
+            <div class="modal-content" onclick="event.stopPropagation()">
+                <button type="button" class="modal-close" aria-label="Закрыть окно" onclick="hideModal('ch13LikeMindedModal')"></button>
+                <h2 id="ch13LikeMindedTitle" style="margin-top: 0; color: var(--accent-color); font-size: 1.45rem; letter-spacing: 0.4px;">Поиск единомышленников</h2>
+                <p style="color: var(--text-main); font-size: 1.05rem; margin-top: 10px;">Я разделяю точку зрения, что в инновационных проектах, особенно ранних стадий, команда — залог успеха. И солопринёрство, по моему мнению, не исключает наличие команды, заинтересованной в реализации проекта.</p>
+                <p style="color: var(--text-dim); font-size: 0.9rem; margin-top: 10px;">(Я не присутствовал на вебинаре Дмитрия Чернышева на эту тему. Смотрел его в записи, которую прислали менеджеры Зерокодера.)</p>
+            </div>
+        </div>
+
+<div class="modal-overlay" id="ch13CooperationModal" role="dialog" aria-modal="true" aria-labelledby="ch13CooperationTitle" onclick="hideModal('ch13CooperationModal')">
+            <div class="modal-content" onclick="event.stopPropagation()">
+                <button type="button" class="modal-close" aria-label="Закрыть окно" onclick="hideModal('ch13CooperationModal')"></button>
+                <h2 id="ch13CooperationTitle" style="margin-top: 0; color: var(--accent-color); font-size: 1.45rem; letter-spacing: 0.4px;">К сотрудничеству</h2>
+                <p style="color: var(--text-main); font-size: 1.1rem; margin-top: 10px;">Такой «слабый» призыв к сотрудничеству — сознательный. Он ориентирован на тех, кому тема бизнеса на экологии действительно интересна и кто может себе позволить заниматься глобальными проблемами/проектами.</p>
+            </div>
+        </div>
+        <!-- CHAPTER-MODALS:END -->
+        <div id="cover-host"></div>
+        <div class="toc" id="mainTOC"></div>
+    </div>
+
+    <!-- CHAPTER-DATA:START -->
+    <!-- Данные главы: единственный источник правды. Их читают страница главы и сборка книги.
+         order — порядок в книге (можно ставить 3.5, чтобы вставить главу между 3 и 4). -->
+    <script type="application/json" id="chapter-data">
+    {
+      "order": 13,
+      "title": "Вот такой проект.",
+      "ready": true,
+      "content": [
+        {
+          "title": "",
+          "theses": [
+            {
+              "text": "С вполне достойной миссией.",
+              "links": [
+                {
+                  "label": "миссией",
+                  "modal": "ch13MissionModal"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "",
+          "theses": [
+            {
+              "text": "С общемировым рыночным потенциалом.",
+              "links": [
+                {
+                  "label": "рыночным потенциалом",
+                  "modal": "ch13MarketModal"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "",
+          "theses": [
+            {
+              "text": "Быстрым выходом на рынок.",
+              "links": [
+                {
+                  "label": "Быстрым",
+                  "modal": "ch13MarketEntryModal"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "",
+          "theses": [
+            {
+              "text": "Да, проект очень ранней стадии.",
+              "links": [
+                {
+                  "label": "ранней",
+                  "modal": "ch13EarlyStageModal"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "",
+          "theses": [
+            {
+              "text": "Но я уверен в его успехе. Потому и приглашаю к участию в нём.",
+              "links": [
+                {
+                  "label": "уверен",
+                  "modal": "ch13ConfidenceModal"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "",
+          "theses": [
+            {
+              "text": "Эта презентация ориентирована, в первую очередь, на поиск единомышленников.",
+              "links": [
+                {
+                  "label": "единомышленников",
+                  "modal": "ch13LikeMindedModal"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "",
+          "theses": [
+            {
+              "text": "Если интересно – давайте обсуждать возможные пути сотрудничества.",
+              "links": [
+                {
+                  "label": "Если",
+                  "modal": "ch13CooperationModal"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+    <!-- CHAPTER-DATA:END -->
+
+    <script src="../cover/cover.js"></script>
+    <script src="../_shared/shell.js"></script>
+</body>
+</html>

@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BSF-фермы | Глава 2</title>
+    <link rel="stylesheet" href="../_shared/shell.css">
+    <link rel="stylesheet" href="../cover/cover.css">
+</head>
+<body data-book-title="Роботизированные BSF-фермы" data-book-subtitle="Трансформация пищевых отходов в высокорентабельный протеин">
+
+    <div class="book-container">
+        <!-- CHAPTER-MODALS:START -->
+<div class="modal-overlay" id="businessModal" role="dialog" aria-modal="true" aria-labelledby="businessTitle" onclick="hideModal('businessModal')">
+            <div class="modal-content" onclick="event.stopPropagation()">
+                <button type="button" class="modal-close" aria-label="Закрыть окно" onclick="hideModal('businessModal')"></button>
+                <h2 id="businessTitle" style="margin-top: 0; color: var(--accent-color); font-size: 1.45rem; letter-spacing: 0.4px;">Лёгкий старт рециклинга</h2>
+                <p style="color: var(--text-dim); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.08em; margin: 6px 0 15px;">Бизнес-циклы, которые уже работают и приносят прибыль</p>
+                <div class="project-grid">
+                    <div class="project-card">
+                        <strong>Металлолом</strong>
+                        <div>Самый простой и прибыльный цикл.</div>
+                    </div>
+                    <div class="project-card">
+                        <strong>Макулатура</strong>
+                        <div>Стабильный спрос и отработанная логистика.</div>
+                    </div>
+                    <div class="project-card">
+                        <strong>Стройматериалы</strong>
+                        <div>Частичный рециклинг бетона и кирпича.</div>
+                    </div>
+                    <div class="project-card">
+                        <strong>Пластик</strong>
+                        <div>Частичный успех с ПЭТ, но высокая сложность с остальными фракциями.</div>
+                    </div>
+                </div>
+                <h3 style="margin: 20px 0 8px; color: var(--accent-color); font-size: 1rem;">Сравнение фракций</h3>
+                <div class="compare-wrap">
+                    <table class="compare-table">
+                        <thead>
+                            <tr><th>Фракция</th><th>Переработка</th><th>Сложность сбыта</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Металл</td><td>высокая: развитый рынок лома</td><td>низкая</td></tr>
+                            <tr><td>Бумага и картон</td><td>около половины мировой бумаги возвращается в оборот</td><td>низкая</td></tr>
+                            <tr><td>Стекло</td><td>частично, зависит от региона</td><td>средняя</td></tr>
+                            <tr><td>ПЭТ</td><td>перерабатывается, но доля ограничена</td><td>средняя</td></tr>
+                            <tr><td>Смешанный пластик</td><td>около 9% всех пластиковых отходов</td><td>высокая</td></tr>
+                            <tr><td>Органика</td><td>прибыльного цикла нет</td><td>высокая</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p style="color: var(--text-dim); font-size: 0.82rem; margin-top: 8px;">Доли переработки считаются по разным методикам, сравнение ориентировочное. Пластик — <a href="https://www.oecd.org/en/publications/global-plastics-outlook_de747aef-en.html" target="_blank" rel="noopener noreferrer" style="color: var(--accent-color); text-decoration: underline;">OECD Global Plastics Outlook, 2022</a>.</p>
+                <p style="color: var(--text-dim); font-size: 0.85rem; margin-top: 10px;">Порядок появления бизнес-циклов повторяет простоту сбыта: от металла к сложным фракциям.</p>
+            </div>
+        </div>
+
+        
+
+        <div class="modal-overlay" id="failureModal" role="dialog" aria-modal="true" aria-labelledby="failureTitle" onclick="hideModal('failureModal')">
+            <div class="modal-content" onclick="event.stopPropagation()">
+                <button type="button" class="modal-close" aria-label="Закрыть окно" onclick="hideModal('failureModal')"></button>
+                <h2 id="failureTitle" style="margin-top: 0; color: #ff4d4d; font-size: 1.45rem; letter-spacing: 0.4px;">Тупик текущих решений</h2>
+                <p style="color: var(--text-dim); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.08em; margin: 6px 0 15px;">Почему существующие методы не работают как бизнес</p>
+                <div class="project-grid">
+                    <div class="project-card" style="border-color: rgba(255,77,77,0.35);">
+                        <strong style="color: #ff4d4d;">Пищевые отходы</strong>
+                        <div>Компостирование: медленно, требует огромных площадей, низкая добавленная стоимость.</div>
+                    </div>
+                    <div class="project-card" style="border-color: rgba(255,77,77,0.35);">
+                        <strong style="color: #ff4d4d;">«Хвосты» заводов</strong>
+                        <div>RDF-топливо: дорогое производство, ограниченный рынок сбыта, экологические риски при сжигании.</div>
+                    </div>
+                </div>
+                <p style="color: var(--text-dim); font-size: 0.85rem; margin: 15px 0 0;">Компостирование занимает от нескольких недель до месяцев и требует больших площадей. RDF требует сортировки и сушки, даёт низкую теплоту сгорания и ограниченный сбыт.</p>
+                <h3 style="margin: 20px 0 8px; color: #ff4d4d; font-size: 1rem;">Почему экономика не сходится</h3>
+                <div class="cost-compare">
+                    <div class="cost-row">
+                        <div class="cost-label">Затраты на переработку</div>
+                        <div class="cost-track"><div class="cost-fill red" style="width: 100%;">затраты</div></div>
+                    </div>
+                    <div class="cost-row">
+                        <div class="cost-label">Стоимость продукта</div>
+                        <div class="cost-track"><div class="cost-fill gray" style="width: 35%;">выручка</div></div>
+                    </div>
+                </div>
+                <p style="color: var(--text-dim); font-size: 0.82rem; margin-top: 8px;">Качественная схема без числовых значений: затраты выше стоимости продукта.</p>
+                <div style="margin-top: 20px; padding: 20px; border-radius: 15px; background: rgba(255,77,77,0.05); border-left: 3px solid #ff4d4d;">
+                    <strong style="color: #ff4d4d;">Результат:</strong> бизнес-модель не сходится. Система выживает только за счёт государственных субсидий или частных «пожертвований».
+                </div>
+                <p style="color: var(--text-dim); font-size: 0.85rem; margin-top: 15px;">Именно поэтому сейчас ищутся новые технологические решения для превращения пищевых отходов и «хвостов» пластика в реальный актив.</p>
+            </div>
+        </div>
+
+        <div class="modal-overlay" id="tkoModal" role="dialog" aria-modal="true" aria-labelledby="tkoTitle" onclick="hideModal('tkoModal')">
+            <div class="modal-content" onclick="event.stopPropagation()">
+                <button type="button" class="modal-close" aria-label="Закрыть окно" onclick="hideModal('tkoModal')"></button>
+                <h2 id="tkoTitle" style="margin-top: 0; color: var(--accent-color); font-size: 1.45rem; letter-spacing: 0.4px;">Анатомия ТКО</h2>
+                <p style="color: var(--text-dim); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.08em; margin: 6px 0 15px;">Что на самом деле представляет собой «городской мусор»</p>
+                <p style="color: var(--text-main); font-size: 1.05rem; margin-bottom: 10px;">ТКО — твёрдые коммунальные отходы: мусор из жилых помещений, офисов и общественных мест.</p>
+
+                <h3 style="margin: 15px 0 8px; color: var(--accent-color); font-size: 1rem;">Средний состав</h3>
+                <div class="compare-wrap">
+                    <table class="compare-table">
+                        <thead>
+                            <tr><th>Фракция</th><th>Доля</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Бумага и картон</td><td>39%</td></tr>
+                            <tr><td>Пищевые (органические) отходы</td><td>30%</td></tr>
+                            <tr><td>Текстиль</td><td>6%</td></tr>
+                            <tr><td>Полимерные материалы</td><td>5%</td></tr>
+                            <tr><td>Стекло</td><td>4%</td></tr>
+                            <tr><td>Дерево</td><td>3%</td></tr>
+                            <tr><td>Чёрный металл</td><td>3%</td></tr>
+                            <tr><td>Кожа и резина</td><td>1%</td></tr>
+                            <tr><td>Цветной металл</td><td>1%</td></tr>
+                            <tr><td>Прочее</td><td>8%</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p style="color: var(--text-dim); font-size: 0.82rem; margin-top: 8px;">Усреднённый состав ТКО в России по справочнику НДТ (Росстандарт, 2016), приведён в <a href="https://www.bkobr.ru/images/files3/albom_luchshih_praktik_rso_2023.pdf" target="_blank" rel="noopener noreferrer" style="color: var(--accent-color); text-decoration: underline;">альбоме лучших практик ППК РЭО, 2023</a>. Методика устарела; по федеральной схеме 2023 года пищевые отходы — около 20 млн т из 59,7 млн т, то есть примерно треть (<a href="https://www.kommersant.ru/doc/5914553" target="_blank" rel="noopener noreferrer" style="color: var(--accent-color); text-decoration: underline;">«Коммерсантъ»</a>).</p>
+                <div style="margin-top: 15px; padding: 15px; border-radius: 15px; background: var(--accent-muted); border-left: 3px solid var(--accent-color);">
+                    <strong style="color: var(--accent-color);">Вывод:</strong> органика — крупнейшая после бумаги фракция и одна из наименее перерабатываемых.
+                </div>
+
+                <h3 style="margin: 20px 0 10px; color: var(--accent-color); font-size: 1rem;">Региональные особенности</h3>
+                <div class="project-grid">
+                    <div class="project-card">
+                        <strong>Высокая доля органики</strong>
+                        <div>Южные регионы и сельские территории — больше пищевых отходов.</div>
+                    </div>
+                    <div class="project-card">
+                        <strong>Высокая доля пластика</strong>
+                        <div>Крупные мегаполисы — одноразовая упаковка и пластик от сервисов доставки.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- CHAPTER-MODALS:END -->
+        <div id="cover-host"></div>
+        <div class="toc" id="mainTOC"></div>
+    </div>
+
+    <!-- CHAPTER-DATA:START -->
+    <!-- Данные главы: единственный источник правды. Их читают страница главы и сборка книги.
+         order — порядок в книге (можно ставить 3.5, чтобы вставить главу между 3 и 4). -->
+    <script type="application/json" id="chapter-data">
+    {
+      "order": 2,
+      "title": "До сих пор не все отходы идут в рециклинг.",
+      "ready": true,
+      "content": [
+        {
+          "title": "Разнообразие циклов",
+          "theses": [
+            "Для каждой группы отходов – свой цикл «возврата к жизни»."
+          ]
+        },
+        {
+          "title": "Приоритеты бизнеса",
+          "theses": [
+            {
+              "text": "Первыми начали «рециклировать» те отходы, на которых проще всего построить бизнес.",
+              "links": [
+                {
+                  "label": "построить бизнес",
+                  "modal": "businessModal"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Сложные отходы",
+          "theses": [
+            {
+              "text": "Для наиболее сложных отходов – «хвосты» мусоросортировочных заводов и пищевые отходы – пока бизнес-циклы не найдены.",
+              "links": [
+                {
+                  "label": "бизнес-циклы не найдены",
+                  "modal": "failureModal"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Масштаб проблемы",
+          "theses": [
+            {
+              "text": "Процент таких сложных отходов в составе ТКО большой.",
+              "links": [
+                {
+                  "label": "составе ТКО",
+                  "modal": "tkoModal"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Экономический барьер",
+          "theses": [
+            "Пока на сложных отходах не появится прибыльный бизнес – горы отходов так и будут расти."
+          ]
+        }
+      ]
+    }
+    </script>
+    <!-- CHAPTER-DATA:END -->
+
+    <script src="../cover/cover.js"></script>
+    <script src="../_shared/shell.js"></script>
+</body>
+</html>

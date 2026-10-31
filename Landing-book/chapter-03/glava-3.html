@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BSF-фермы | Глава 3</title>
+    <link rel="stylesheet" href="../_shared/shell.css">
+    <link rel="stylesheet" href="../cover/cover.css">
+</head>
+<body data-book-title="Роботизированные BSF-фермы" data-book-subtitle="Трансформация пищевых отходов в высокорентабельный протеин">
+
+    <div class="book-container">
+        <!-- CHAPTER-MODALS:START -->
+<div class="modal-overlay" id="bsfModal" role="dialog" aria-modal="true" aria-labelledby="bsfTitle" onclick="hideModal('bsfModal')">
+            <div class="modal-content" onclick="event.stopPropagation()">
+                <button type="button" class="modal-close" aria-label="Закрыть окно" onclick="hideModal('bsfModal')"></button>
+                <h2 id="bsfTitle" style="margin-top: 0; color: var(--accent-color); text-transform: uppercase; letter-spacing: 1px;">Муха чёрная львинка</h2>
+                <p style="color: var(--text-main); font-size: 1.1rem; margin-bottom: 5px;">Hermetia illucens, BSF — муха, личинки которой перерабатывают органику и накапливают белок и жир.</p>
+
+                <div class="bsf-diagram">
+                    <svg viewBox="0 0 800 220" role="img" aria-label="Жизненный цикл чёрной львинки: яйцо, личинка, предкуколка, куколка, имаго">
+                        <defs>
+                            <marker id="bsfArrow" markerWidth="10" markerHeight="8" refX="8" refY="4" orient="auto">
+                                <path d="M0,0 L10,4 L0,8 Z" fill="var(--accent-color)"/>
+                            </marker>
+                        </defs>
+
+                        <text x="400" y="24" text-anchor="middle" fill="var(--text-dim)" font-size="14">≈ 44–46 суток от яйца до имаго</text>
+
+                        <g stroke="var(--accent-color)" stroke-width="1.5" opacity="0.45" marker-end="url(#bsfArrow)">
+                            <line x1="122" y1="100" x2="186" y2="100"/>
+                            <line x1="282" y1="100" x2="346" y2="100"/>
+                            <line x1="442" y1="100" x2="506" y2="100"/>
+                            <line x1="602" y1="100" x2="666" y2="100"/>
+                        </g>
+
+                        <circle cx="80" cy="100" r="42" fill="#0a0a0b" stroke="var(--accent-color)" stroke-width="2"/>
+                        <g stroke="var(--accent-color)" stroke-width="1.6" fill="none">
+                            <ellipse cx="72" cy="92" rx="5" ry="9" transform="rotate(-18 72 92)"/>
+                            <ellipse cx="86" cy="96" rx="5" ry="9" transform="rotate(10 86 96)"/>
+                            <ellipse cx="78" cy="108" rx="5" ry="9" transform="rotate(-6 78 108)"/>
+                        </g>
+
+                        <circle cx="240" cy="100" r="42" fill="#0a0a0b" stroke="var(--accent-color)" stroke-width="2"/>
+                        <g fill="var(--accent-color)">
+                            <circle cx="220" cy="100" r="7"/>
+                            <circle cx="234" cy="96" r="8"/>
+                            <circle cx="248" cy="97" r="8"/>
+                            <circle cx="261" cy="101" r="7"/>
+                            <circle cx="272" cy="106" r="5.5"/>
+                        </g>
+
+                        <circle cx="400" cy="100" r="42" fill="#0a0a0b" stroke="var(--text-dim)" stroke-width="2"/>
+                        <g fill="var(--text-dim)">
+                            <circle cx="386" cy="106" r="6"/>
+                            <circle cx="396" cy="98" r="6.5"/>
+                            <circle cx="408" cy="96" r="6.5"/>
+                            <circle cx="418" cy="103" r="6"/>
+                            <circle cx="414" cy="112" r="5"/>
+                        </g>
+
+                        <circle cx="560" cy="100" r="42" fill="#0a0a0b" stroke="var(--accent-color)" stroke-width="2"/>
+                        <rect x="548" y="76" width="24" height="48" rx="12" fill="rgba(163,255,71,0.12)" stroke="var(--accent-color)" stroke-width="2"/>
+                        <line x1="552" y1="88" x2="568" y2="88" stroke="var(--accent-color)" stroke-width="1" opacity="0.5"/>
+                        <line x1="552" y1="100" x2="568" y2="100" stroke="var(--accent-color)" stroke-width="1" opacity="0.5"/>
+                        <line x1="552" y1="112" x2="568" y2="112" stroke="var(--accent-color)" stroke-width="1" opacity="0.5"/>
+
+                        <circle cx="720" cy="100" r="42" fill="#0a0a0b" stroke="var(--accent-color)" stroke-width="2"/>
+                        <g stroke="var(--accent-color)" stroke-width="1.8" fill="none">
+                            <ellipse cx="720" cy="104" rx="7" ry="15"/>
+                            <circle cx="720" cy="84" r="5.5"/>
+                            <ellipse cx="705" cy="96" rx="15" ry="6" transform="rotate(-28 705 96)"/>
+                            <ellipse cx="735" cy="96" rx="15" ry="6" transform="rotate(28 735 96)"/>
+                            <line x1="716" y1="116" x2="710" y2="126"/>
+                            <line x1="724" y1="116" x2="730" y2="126"/>
+                        </g>
+
+                        <g fill="var(--text-main)" font-size="15" text-anchor="middle">
+                            <text x="80" y="170">Яйцо</text>
+                            <text x="240" y="170">Личинка</text>
+                            <text x="400" y="170">Предкуколка</text>
+                            <text x="560" y="170">Куколка</text>
+                            <text x="720" y="170">Имаго</text>
+                        </g>
+                        <g fill="var(--text-dim)" font-size="11" text-anchor="middle">
+                            <text x="80" y="190">≈ 4 суток</text>
+                            <text x="240" y="190">12 дней откорма</text>
+                            <text x="720" y="190">≈ 7 суток</text>
+                        </g>
+                    </svg>
+                </div>
+
+                <div class="bsf-facts">
+                    <div class="bsf-fact">
+                        <strong>Жизненный цикл</strong>
+                        <div>Яйцо → личинка → предкуколка → куколка → имаго. Яйца развиваются около 4 суток, полный цикл занимает примерно 44–46 суток.</div>
+                    </div>
+                    <div class="bsf-fact">
+                        <strong>Переработка отходов</strong>
+                        <div>Личинка питается пищевыми отходами: 4,5–10 кг органики дают 1 кг биомассы личинки. Товарную личинку собирают на 12-е сутки откорма.</div>
+                    </div>
+                    <div class="bsf-fact">
+                        <strong>Продукт</strong>
+                        <div>Из личинки получают БЛК — аналог рыбной муки. Остаток переработки, фрасс, становится органическим удобрением.</div>
+                    </div>
+                </div>
+
+                <p style="color: var(--text-dim); font-size: 0.82rem; margin-top: 20px;">Источники: <a href="https://www.eawag.ch/fileadmin/Domain1/Abteilungen/sandec/schwerpunkte/swm/Practical_knowhow_on_BSF/BSF_Biowaste_Processing_2nd_Edition_LR.pdf" target="_blank" rel="noopener noreferrer" style="color: var(--accent-color); text-decoration: underline;">Eawag: Black Soldier Fly Biowaste Processing — A Step-by-Step Guide (2nd ed., PDF)</a>; <a href="https://cgspace.cgiar.org/items/a12ef55c-095e-41ce-949d-acfd2508ffd9/full" target="_blank" rel="noopener noreferrer" style="color: var(--accent-color); text-decoration: underline;">IWMI: Operational efficiency and economic insights of BSF farming (Adamtey et al., 2025)</a>; <a href="https://doi.org/10.3329/bjz.v48i2.52381" target="_blank" rel="noopener noreferrer" style="color: var(--accent-color); text-decoration: underline;">Ferdousi et al., 2020: жизненный цикл BSF (DOI)</a>.</p>
+            </div>
+        </div>
+
+<div class="modal-overlay" id="analogModal" role="dialog" aria-modal="true" aria-labelledby="analogTitle" onclick="hideModal('analogModal')">
+            <div class="modal-content" onclick="event.stopPropagation()">
+                <button type="button" class="modal-close" aria-label="Закрыть окно" onclick="hideModal('analogModal')"></button>
+                <h2 id="analogTitle" style="margin-top: 0; color: var(--accent-color); text-transform: uppercase; letter-spacing: 1px;">БЛК и рыбная мука</h2>
+                <p style="color: var(--text-main); font-size: 1.1rem; margin-bottom: 5px;">БЛК — не копия рыбной муки, а её функциональный аналог: другой баланс белка и жира, другое сырьё и другая цена.</p>
+
+                <div class="compare-wrap">
+                    <table class="compare-table">
+                        <thead>
+                            <tr>
+                                <th>Показатель</th>
+                                <th>Рыбная мука</th>
+                                <th>БЛК (личинка BSF)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Сырой протеин, % СВ</td>
+                                <td>68 (57–76)</td>
+                                <td>57 (41–71)</td>
+                            </tr>
+                            <tr>
+                                <td>Сырой жир, % СВ</td>
+                                <td>10 (2–18)</td>
+                                <td>12 (4,6–21)</td>
+                            </tr>
+                            <tr>
+                                <td>Сырьё</td>
+                                <td>вылов рыбы</td>
+                                <td>пищевые отходы</td>
+                            </tr>
+                            <tr>
+                                <td>Цена, ₽/кг</td>
+                                <td>130–150</td>
+                                <td>201; цель — 96</td>
+                            </tr>
+                            <tr>
+                                <td>Назначение</td>
+                                <td>комбикорма</td>
+                                <td>комбикорма</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <p style="color: var(--text-dim); font-size: 0.85rem; margin-top: 10px;">Средние значения, в скобках — диапазон. Источники: <a href="https://www.feedipedia.org/node/28113" target="_blank" rel="noopener noreferrer" style="color: var(--accent-color); text-decoration: underline;">Feedipedia: Fish meal, type 62 protein</a>; <a href="https://www.feedipedia.org/node/17132" target="_blank" rel="noopener noreferrer" style="color: var(--accent-color); text-decoration: underline;">Feedipedia: Black soldier fly larvae, dehydrated</a>. Цены — по материалам проекта.</p>
+            </div>
+        </div>
+
+<div class="modal-overlay" id="compoundModal" role="dialog" aria-modal="true" aria-labelledby="compoundTitle" onclick="hideModal('compoundModal')">
+            <div class="modal-content" onclick="event.stopPropagation()">
+                <button type="button" class="modal-close" aria-label="Закрыть окно" onclick="hideModal('compoundModal')"></button>
+                <h2 id="compoundTitle" style="margin-top: 0; color: var(--accent-color); text-transform: uppercase; letter-spacing: 1px;">Рыбная мука в комбикормах</h2>
+                <p style="color: var(--text-main); font-size: 1.1rem; margin-bottom: 5px;">Рыбная мука — концентрированный источник белка, который добавляют в комбикорма для разных групп животных.</p>
+
+                <div class="bsf-facts" style="margin-top: 20px;">
+                    <div class="bsf-fact">
+                        <strong>Аквакультура — главный канал</strong>
+                        <div>78% потребления в базовом периоде, до 84% к 2034 году. Лососёвые, морские рыбы, тилапия, карп, сом, креветки.</div>
+                    </div>
+                    <div class="bsf-fact">
+                        <strong>Птицеводство</strong>
+                        <div>Бройлеры, несушки, индейки, перепела, утки. Чаще в стартовых и высокоценных рационах.</div>
+                    </div>
+                    <div class="bsf-fact">
+                        <strong>Свиноводство</strong>
+                        <div>Поросята после отъёма и молодняк на доращивании — как легкоусвояемый белок.</div>
+                    </div>
+                    <div class="bsf-fact">
+                        <strong>Домашние животные</strong>
+                        <div>Премиальные корма для кошек и собак.</div>
+                    </div>
+                    <div class="bsf-fact">
+                        <strong>Нишевые направления</strong>
+                        <div>Кролики и лошади — ограниченно, при дефиците местных источников белка.</div>
+                    </div>
+                </div>
+
+                <h3 style="color: var(--accent-color); font-size: 1rem; margin: 25px 0 5px;">Производство комбикормов в мире</h3>
+                <p style="color: var(--text-dim); font-size: 0.9rem; margin: 0 0 10px;">Рост идёт второй год подряд — вместе с ним растёт и спрос на белковые ингредиенты.</p>
+                <div class="compare-wrap">
+                    <table class="compare-table">
+                        <thead>
+                            <tr>
+                                <th>Год</th>
+                                <th>Комбикорма, млрд т</th>
+                                <th>Динамика</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>2023</td><td>1,38</td><td>—</td></tr>
+                            <tr><td>2024</td><td>1,40</td><td>+1,2%</td></tr>
+                            <tr><td>2025</td><td>1,44</td><td><span style="color: var(--accent-color); font-weight: 700;">+2,9%</span></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p style="color: var(--text-dim); font-size: 0.85rem; margin-top: 10px;">За два года +4,3%. Сопоставимый ряд с 2023 года: в 2023-м Alltech изменил охват и пересчитал базу. Источник: <a href="https://www.alltech.com/press-release/2026-alltech-agri-food-outlook-shares-global-feed-production-survey-data" target="_blank" rel="noopener noreferrer" style="color: var(--accent-color); text-decoration: underline;">Alltech Agri-Food Outlook 2026</a>.</p>
+
+                <p style="color: var(--text-dim); font-size: 0.85rem; margin-top: 20px;">Источник: <a href="https://www.feedipedia.org/node/208" target="_blank" rel="noopener noreferrer" style="color: var(--accent-color); text-decoration: underline;">Feedipedia: Fish meal</a> (разделы Pigs, Poultry, Fish, Crustaceans; данные OECD-FAO, 2025).</p>
+            </div>
+        </div>
+
+<div class="modal-overlay" id="marketVolumeModal" role="dialog" aria-modal="true" aria-labelledby="marketVolumeTitle" onclick="hideModal('marketVolumeModal')">
+            <div class="modal-content" onclick="event.stopPropagation()">
+                <button type="button" class="modal-close" aria-label="Закрыть окно" onclick="hideModal('marketVolumeModal')"></button>
+                <h2 id="marketVolumeTitle" style="margin-top: 0; color: var(--accent-color); text-transform: uppercase; letter-spacing: 1px;">Рынок рыбной муки</h2>
+                <p style="color: var(--text-main); font-size: 1.1rem; margin-bottom: 5px;">Мировое производство, экспорт и потребление рыбной муки, млн т.</p>
+
+                <div class="market-chart">
+                    <svg viewBox="0 0 800 340" role="img" aria-label="График: производство, экспорт и потребление рыбной муки (млн т) и средняя мировая цена (USD/т), 2016/17–2025/26">
+                        <text x="38" y="30" text-anchor="end" fill="#a0a0a0" font-size="10">млн т</text>
+                        <text x="796" y="30" text-anchor="end" fill="#d4af37" font-size="10">USD/т</text>
+
+                        <g stroke="rgba(255,255,255,0.07)" stroke-width="1">
+                            <line x1="46" y1="40" x2="740" y2="40"/>
+                            <line x1="46" y1="75.7" x2="740" y2="75.7"/>
+                            <line x1="46" y1="111.4" x2="740" y2="111.4"/>
+                            <line x1="46" y1="147.1" x2="740" y2="147.1"/>
+                            <line x1="46" y1="182.9" x2="740" y2="182.9"/>
+                            <line x1="46" y1="218.6" x2="740" y2="218.6"/>
+                            <line x1="46" y1="254.3" x2="740" y2="254.3"/>
+                            <line x1="46" y1="290" x2="740" y2="290"/>
+                        </g>
+
+                        <g fill="#a0a0a0" font-size="11" text-anchor="end">
+                            <text x="38" y="44">7</text>
+                            <text x="38" y="80">6</text>
+                            <text x="38" y="115">5</text>
+                            <text x="38" y="151">4</text>
+                            <text x="38" y="187">3</text>
+                            <text x="38" y="223">2</text>
+                            <text x="38" y="258">1</text>
+                            <text x="38" y="294">0</text>
+                        </g>
+
+                        <line x1="46" y1="40" x2="46" y2="290" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+                        <line x1="740" y1="40" x2="740" y2="290" stroke="rgba(212,175,55,0.35)" stroke-width="1"/>
+
+                        <g fill="#d4af37" font-size="10" text-anchor="start" opacity="0.9">
+                            <text x="748" y="294">0</text>
+                            <text x="748" y="258">500</text>
+                            <text x="748" y="223">1 000</text>
+                            <text x="748" y="187">1 500</text>
+                            <text x="748" y="151">2 000</text>
+                            <text x="748" y="115">2 500</text>
+                            <text x="748" y="80">3 000</text>
+                            <text x="748" y="44">3 500</text>
+                        </g>
+
+                        <g fill="#a0a0a0" font-size="11" text-anchor="middle">
+                            <text x="46" y="316">2016/17</text>
+                            <text x="123.1" y="316">2017/18</text>
+                            <text x="200.2" y="316">2018/19</text>
+                            <text x="277.3" y="316">2019/20</text>
+                            <text x="354.4" y="316">2020/21</text>
+                            <text x="431.6" y="316">2021/22</text>
+                            <text x="508.7" y="316">2022/23</text>
+                            <text x="585.8" y="316">2023/24</text>
+                            <text x="662.9" y="316">2024/25</text>
+                            <text x="740" y="316">2025/26</text>
+                        </g>
+
+                        <g fill="none" stroke-linejoin="round" stroke-linecap="round">
+                            <polyline points="46,98.2 123.1,105.4 200.2,104.3 277.3,109.6 354.4,97.9 431.6,89.3 508.7,98.2 585.8,83.2 662.9,74.6 740,67.9" stroke="#e0e0e0" stroke-width="2.5"/>
+                            <polyline points="46,197.5 123.1,193.9 200.2,195.4 277.3,194.6 354.4,184.6 431.6,185.4 508.7,198.9 585.8,183.9 662.9,177.5 740,176.1" stroke="#777777" stroke-width="1.2" opacity="0.6"/>
+                            <polyline points="46,115.7 123.1,118.6 200.2,119.6 277.3,123.9 354.4,116.4 431.6,110.4 508.7,127.9 585.8,106.4 662.9,101.4 740,100.4" stroke="#a3ff47" stroke-width="2.5"/>
+                        </g>
+
+                        <polyline points="46,206.6 123.1,193.6 200.2,199.9 277.3,199.1 354.4,189.7 431.6,186.9 508.7,179.4 585.8,179.4 662.9,189.6 740,130.9" fill="none" stroke="#d4af37" stroke-width="2.5" stroke-dasharray="7 4" stroke-linejoin="round" stroke-linecap="round"/>
+                        <g fill="#0a0a0b" stroke="#d4af37" stroke-width="1.5">
+                            <circle cx="46" cy="206.6" r="2.5"/>
+                            <circle cx="123.1" cy="193.6" r="2.5"/>
+                            <circle cx="200.2" cy="199.9" r="2.5"/>
+                            <circle cx="277.3" cy="199.1" r="2.5"/>
+                            <circle cx="354.4" cy="189.7" r="2.5"/>
+                            <circle cx="431.6" cy="186.9" r="2.5"/>
+                            <circle cx="508.7" cy="179.4" r="2.5"/>
+                            <circle cx="585.8" cy="179.4" r="2.5"/>
+                            <circle cx="662.9" cy="189.6" r="2.5"/>
+                            <circle cx="740" cy="130.9" r="3.5"/>
+                        </g>
+
+                        <g font-size="12">
+                            <line x1="46" y1="18" x2="66" y2="18" stroke="#a3ff47" stroke-width="3"/>
+                            <text x="72" y="22" fill="#a3ff47">Производство</text>
+                            <line x1="185" y1="18" x2="205" y2="18" stroke="#9a9a9a" stroke-width="3"/>
+                            <text x="211" y="22" fill="#9a9a9a">Экспорт</text>
+                            <line x1="285" y1="18" x2="305" y2="18" stroke="#e0e0e0" stroke-width="3"/>
+                            <text x="311" y="22" fill="#e0e0e0">Потребление</text>
+                            <line x1="415" y1="18" x2="435" y2="18" stroke="#d4af37" stroke-width="3" stroke-dasharray="7 4"/>
+                            <text x="441" y="22" fill="#d4af37">Цена</text>
+                        </g>
+                    </svg>
+                </div>
+
+                <p style="color: var(--text-main); font-size: 0.95rem; margin-top: 10px;">Производство держится в узком коридоре 4,5–5,3 млн т: предложение ограничено выловом мелкой пелагической рыбы — анчоуса, сардины, менхэдена. Экспорт — около 2,5–3,2 млн т в год. Средняя цена выросла с 1 168 USD/т в 2016/17 до 2 228 USD/т в 2025/26, но росла не каждый год: в 2018/19–2019/20 и 2024/25 было снижение.</p>
+
+                <h3 style="color: var(--accent-color); font-size: 1rem; margin: 25px 0 5px;">Производство аквакультуры, млн т</h3>
+                <p style="color: var(--text-dim); font-size: 0.9rem; margin: 0 0 10px;">Драйвер спроса на рыбную муку: FAO, все виды аквакультуры, включая водоросли.</p>
+                <div class="market-chart">
+                    <svg viewBox="0 0 800 240" role="img" aria-label="Производство аквакультуры в мире, 2016–2024, млн т">
+                        <text x="60" y="24" fill="#a0a0a0" font-size="10">млн т</text>
+
+                        <g stroke="rgba(255,255,255,0.07)" stroke-width="1">
+                            <line x1="60" y1="40" x2="740" y2="40"/>
+                            <line x1="60" y1="56.7" x2="740" y2="56.7"/>
+                            <line x1="60" y1="90" x2="740" y2="90"/>
+                            <line x1="60" y1="123.3" x2="740" y2="123.3"/>
+                            <line x1="60" y1="156.7" x2="740" y2="156.7"/>
+                            <line x1="60" y1="190" x2="740" y2="190"/>
+                        </g>
+
+                        <g fill="#a0a0a0" font-size="11" text-anchor="end">
+                            <text x="52" y="44">145</text>
+                            <text x="52" y="61">140</text>
+                            <text x="52" y="94">130</text>
+                            <text x="52" y="127">120</text>
+                            <text x="52" y="161">110</text>
+                            <text x="52" y="194">100</text>
+                        </g>
+
+                        <line x1="60" y1="40" x2="60" y2="190" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+
+                        <g fill="#a0a0a0" font-size="11" text-anchor="middle">
+                            <text x="60" y="216">2016</text>
+                            <text x="145" y="216">2017</text>
+                            <text x="230" y="216">2018</text>
+                            <text x="315" y="216">2019</text>
+                            <text x="400" y="216">2020</text>
+                            <text x="485" y="216">2021</text>
+                            <text x="570" y="216">2022</text>
+                            <text x="655" y="216">2023</text>
+                            <text x="740" y="216">2024</text>
+                        </g>
+
+                        <polyline points="60,162.7 145,149 230,136.7 315,124.3 400,114 485,101.7 570,86 655,68.7 740,52" fill="none" stroke="#a3ff47" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+
+                        <g fill="#0a0a0b" stroke="#a3ff47" stroke-width="1.5">
+                            <circle cx="60" cy="162.7" r="2.5"/>
+                            <circle cx="145" cy="149" r="2.5"/>
+                            <circle cx="230" cy="136.7" r="2.5"/>
+                            <circle cx="315" cy="124.3" r="2.5"/>
+                            <circle cx="400" cy="114" r="2.5"/>
+                            <circle cx="485" cy="101.7" r="2.5"/>
+                            <circle cx="570" cy="86" r="2.5"/>
+                            <circle cx="655" cy="68.7" r="2.5"/>
+                            <circle cx="740" cy="52" r="3.5"/>
+                        </g>
+
+                        <text x="750" y="56" fill="#a3ff47" font-size="12" font-weight="700">141,4</text>
+                    </svg>
+                </div>
+                <p style="color: var(--text-main); font-size: 0.9rem; margin-top: 8px;">+30,7% за 2016–2024 (шкала начинается со 100 млн т). Тоннаж аквакормов Alltech сопоставим только с 2022 года: 52,9 млн т (2022) → 55,5 млн т (2025), +4,9%.</p>
+
+                <p style="color: var(--text-dim); font-size: 0.85rem; margin-top: 15px;">Рыбная мука — маркетинговый год, аквакультура — календарный. Источники: <a href="https://apps.fas.usda.gov/psdonline/reportHandler.ashx?fileName=Table%2019:%20World:%20Palm%20Oil,%20Coconut%20Oil,%20and%20Fish%20Meal%20Supply%20and%20Distribution%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20&amp;reportId=718&amp;templateId=13&amp;format=html" target="_blank" rel="noopener noreferrer" style="color: var(--accent-color); text-decoration: underline;">USDA FAS: World Fish Meal Supply and Distribution (2026)</a>; <a href="https://www.feedipedia.org/node/208" target="_blank" rel="noopener noreferrer" style="color: var(--accent-color); text-decoration: underline;">Feedipedia: Fish meal</a> (5–6 млн т в год, прогноз 5,9 млн т к 2034 году); <a href="https://fred.stlouisfed.org/series/PFISHUSDM" target="_blank" rel="noopener noreferrer" style="color: var(--accent-color); text-decoration: underline;">FRED: Global price of Fish Meal (IMF)</a>; <a href="https://data.worldbank.org/indicator/ER.FSH.AQUA.MT" target="_blank" rel="noopener noreferrer" style="color: var(--accent-color); text-decoration: underline;">World Bank / FAO: Aquaculture production</a>; <a href="https://www.alltech.com/press-release/2026-alltech-agri-food-outlook-shares-global-feed-production-survey-data" target="_blank" rel="noopener noreferrer" style="color: var(--accent-color); text-decoration: underline;">Alltech: аквакорма 2025</a>.</p>
+            </div>
+        </div>
+        <!-- CHAPTER-MODALS:END -->
+        <div id="cover-host"></div>
+        <div class="toc" id="mainTOC"></div>
+    </div>
+
+    <!-- CHAPTER-DATA:START -->
+    <!-- Данные главы: единственный источник правды. Их читают страница главы и сборка книги.
+         order — порядок в книге (можно ставить 3.5, чтобы вставить главу между 3 и 4). -->
+    <script type="application/json" id="chapter-data">
+    {
+      "order": 3,
+      "title": "Этот проект про рециклинг пищевых отходов с помощью мухи BSF.",
+      "ready": true,
+      "content": [
+        {
+          "title": "",
+          "theses": [
+            {
+              "text": "Одно из перспективных решений в направлении рециклинга пищевых отходов – использование личинок мухи BSF для производства из них белково-липидного концентрата (БЛК) – аналога рыбной муки.",
+              "links": [
+                {
+                  "label": "личинок мухи BSF",
+                  "modal": "bsfModal"
+                },
+                {
+                  "label": "аналога",
+                  "modal": "analogModal"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "",
+          "theses": [
+            {
+              "text": "Рыбная мука используется в составе большого разнообразия комбикормов.",
+              "links": [
+                {
+                  "label": "комбикормов",
+                  "modal": "compoundModal"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "",
+          "theses": [
+            {
+              "text": "Потребность в рыбной муке растёт вместе с аквакультурой и производством комбикормов. Цены в долгосрочном тренде растут из-за истощения запасов рыбы, но год к году заметно колеблются.",
+              "links": [
+                {
+                  "label": "истощения запасов",
+                  "modal": "marketVolumeModal"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+    <!-- CHAPTER-DATA:END -->
+
+    <script src="../cover/cover.js"></script>
+    <script src="../_shared/shell.js"></script>
+</body>
+</html>

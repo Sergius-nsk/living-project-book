@@ -1,0 +1,299 @@
+:root {
+            --bg-color: #050506;
+            --surface-color: #0a0a0b;
+            --accent-color: #a3ff47;
+            --accent-muted: rgba(163, 255, 71, 0.1);
+            --text-main: #e0e0e0;
+            --text-dim: #a0a0a0;
+            --waste-color: #666666;
+            --protein-color: #ffffff;
+            --neon-glow: 0 0 30px rgba(163, 255, 71, 0.3);
+            --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: 'Inter', system-ui, sans-serif;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            padding: 60px 20px;
+            line-height: 1.6;
+        }
+
+        .book-container {
+            max-width: 900px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            position: relative;
+        }
+
+        .toc {
+            display: none;
+            flex-direction: column;
+            gap: 12px;
+            animation: slideDown 0.5s ease forwards;
+        }
+
+        .toc.is-open {
+            display: flex !important;
+        }
+
+        .chapter {
+            background: var(--surface-color);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .chapter-header {
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.3s;
+        }
+
+        .chapter-header:hover {
+            background: var(--accent-muted);
+        }
+
+        .chapter-title {
+            font-size: 1.3rem;
+            color: var(--text-main);
+            font-weight: 500;
+            padding-right: 20px;
+        }
+
+        .chapter-status {
+            font-size: 0.8rem;
+            color: var(--text-dim);
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 4px 10px;
+            border-radius: 20px;
+        }
+
+        .status-ready {
+            color: var(--accent-color);
+            border-color: var(--accent-color);
+        }
+
+        .chapter-content {
+            display: none;
+            padding: 0 20px 20px;
+            flex-direction: column;
+            gap: 15px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            background: rgba(0,0,0,0.3);
+        }
+
+        .paragraph {
+            background: rgba(255,255,255,0.02);
+            border-radius: 12px;
+            padding: 15px;
+            border-left: 3px solid transparent;
+            transition: var(--transition);
+        }
+        .paragraph .thesis-list {
+            color: #d4af37 !important;
+        }
+
+        .paragraph:hover {
+            border-left-color: var(--accent-color);
+            background: rgba(255,255,255,0.05);
+        }
+
+        .thesis-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            color: var(--text-main);
+            font-size: 1.3rem;
+        }
+
+        .thesis {
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .thesis::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 10px;
+            width: 6px;
+            height: 6px;
+            background: var(--accent-color);
+            border-radius: 50%;
+            box-shadow: var(--neon-glow);
+        }
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .is-open { display: flex !important; }
+
+        /* Modal Styles */
+        /* Прокручивается подложка, а не само окно. Иначе полоса прокрутки
+           режется скруглением окна и «налезает» на его правую границу.
+           Так же сделано в книге (index.html). */
+        .modal-overlay {
+            box-sizing: border-box;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(10px);
+            display: none;
+            justify-content: center;
+            align-items: flex-start;
+            overflow-y: auto;
+            overscroll-behavior: contain;
+            padding: 40px 0;
+            z-index: 1000;
+            opacity: 0;
+            transition: var(--transition);
+            scrollbar-width: thin;
+            scrollbar-color: rgba(163, 255, 71, 0.35) transparent;
+        }
+        .modal-overlay.is-open {
+            display: flex;
+            opacity: 1;
+        }
+        .modal-content {
+            box-sizing: border-box;
+            background: var(--surface-color);
+            border: 1px solid var(--accent-color);
+            border-radius: 30px;
+            width: 90%;
+            max-width: 1000px;
+            margin: auto;
+            padding: 40px;
+            position: relative;
+            box-shadow: var(--neon-glow);
+            animation: modalAppear 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        @keyframes modalAppear {
+            from { transform: scale(0.9); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+        .modal-close {
+            position: absolute;
+            top: 20px; right: 20px;
+            color: var(--text-main);
+            cursor: pointer;
+            font-size: 1.5rem;
+            width: 40px; height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: var(--transition);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .modal-close:hover {
+            background: var(--accent-color);
+            color: var(--bg-color);
+            box-shadow: var(--neon-glow);
+        }
+        .interactive-link {
+            color: var(--accent-color);
+            text-decoration: none;
+            border-bottom: 1px dashed var(--accent-color);
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 500;
+        }
+        .interactive-link:hover {
+            background: var(--accent-muted);
+            box-shadow: 0 0 10px var(--accent-muted);
+        }
+
+        /* ============================================================
+           Блоки содержимого глав: карточки, цепочка, таблицы, схема,
+           галерея. Перенесены из книги, чтобы страница главы совпадала
+           с книгой по виду.
+           ============================================================ */
+        .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 15px; margin-top: 15px; }
+        .project-card { padding: 18px; border-radius: 14px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.02); }
+        .project-card strong { color: var(--accent-color); display: block; margin-bottom: 6px; }
+        .project-card div { color: var(--text-dim); font-size: 0.92rem; }
+        .cost-compare { display: flex; flex-direction: column; gap: 14px; }
+        .cost-row { display: flex; align-items: center; gap: 14px; }
+        .cost-label { width: 170px; flex-shrink: 0; color: var(--text-dim); font-size: 0.95rem; }
+        .cost-track { flex: 1; height: 34px; background: rgba(255,255,255,0.06); border-radius: 8px; overflow: hidden; }
+        .cost-fill { height: 100%; display: flex; align-items: center; justify-content: flex-end; padding-right: 12px; border-radius: 8px; font-weight: 700; font-size: 0.95rem; color: #050506; }
+        .cost-fill.red { background: #ff4d4d; }
+        .cost-fill.gray { background: #9a9a9a; }
+        .cost-fill.green { background: var(--accent-color); }
+        .compare-wrap { overflow-x: auto; }
+        .compare-table { width: 100%; border-collapse: collapse; margin: 20px 0 10px; font-size: 0.95rem; }
+        .compare-table th, .compare-table td { padding: 12px 14px; border-bottom: 1px solid rgba(255,255,255,0.08); text-align: left; vertical-align: top; }
+        .compare-table th { color: var(--accent-color); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 1px solid rgba(163,255,71,0.4); }
+        .hierarchy-table td:first-child { width: 18%; }
+        .chain { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin: 15px 0 5px; }
+        .chain-step { padding: 8px 12px; border-radius: 20px; background: var(--accent-muted); border: 1px solid var(--accent-color); color: var(--text-main); font-size: 0.88rem; }
+        .chain-arrow { color: var(--accent-color); font-weight: 700; }
+        .bsf-diagram { margin: 20px 0; padding: 10px; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08); border-radius: 20px; }
+        .bsf-diagram svg { display: block; width: 100%; height: auto; }
+        .waste-gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 20px; }
+        .waste-item { position: relative; border-radius: 15px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); }
+        .waste-item img { display: block; width: 100%; height: auto; }
+        .waste-caption { padding: 10px 12px; font-size: 0.85rem; color: var(--text-dim); background: rgba(0,0,0,0.35); }
+
+        /* Крестик закрытия рисуется псевдоэлементами, как в книге */
+        .modal-close { background: transparent; padding: 0; font-family: inherit; line-height: 1; }
+        .modal-close::before, .modal-close::after {
+            content: '';
+            position: absolute;
+            top: 50%; left: 50%;
+            width: 18px; height: 2px;
+            border-radius: 2px;
+            background: currentColor;
+            transform: translate(-50%, -50%) rotate(45deg);
+        }
+        .modal-close::after { transform: translate(-50%, -50%) rotate(-45deg); }
+
+        /* Обложка вставляется скриптом cover.js: до этого момента её нет,
+           поэтому убираем скачок вёрстки у контейнера-заглушки. */
+        #cover-host { display: block; }
+
+        /* ============================================================
+           Блоки, которые используются в окнах глав и раньше были
+           только в CSS книги: факты, график рынка, карточки людей,
+           фото- и видеосетки, схемы.
+           ============================================================ */
+        .bsf-facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px; }
+        .bsf-fact { padding: 16px; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; }
+        .bsf-fact strong { color: var(--accent-color); display: block; margin-bottom: 6px; }
+        .bsf-fact div { color: var(--text-dim); font-size: 0.92rem; }
+        .market-chart { margin: 20px 0 10px; padding: 10px; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08); border-radius: 20px; overflow-x: auto; }
+        .market-chart svg { display: block; width: 100%; height: auto; }
+        .person-head { display: flex; gap: 20px; align-items: flex-start; flex-wrap: wrap; margin-bottom: 10px; }
+        .person-photo { width: 120px; aspect-ratio: 3 / 4; flex: 0 0 auto; border-radius: 12px; border: 1px dashed rgba(255,255,255,0.2); background: rgba(255,255,255,0.03); display: flex; align-items: center; justify-content: center; color: var(--text-dim); font-size: 0.75rem; text-align: center; line-height: 1.3; }
+        .person-photo img { width: 100%; height: 100%; object-fit: cover; border-radius: 12px; }
+        .person-name { font-size: 1.35rem; font-weight: 700; color: var(--text-main); }
+        .person-role { color: var(--accent-color); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.08em; margin-top: 4px; }
+        .photo-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 15px; }
+        .photo-grid figure { margin: 0; }
+        .photo-grid img { width: 100%; height: auto; display: block; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); }
+        .photo-grid figcaption { color: var(--text-dim); font-size: 0.78rem; margin-top: 6px; }
+        .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; margin-top: 10px; }
+        .video-card { display: block; padding: 16px; border-radius: 14px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.02); color: var(--text-main); text-decoration: none; transition: var(--transition); }
+        .video-card:hover { border-color: var(--accent-color); background: var(--accent-muted); }
+        .video-card strong { display: block; color: var(--accent-color); margin-bottom: 4px; }
+        .video-card span { color: var(--text-dim); font-size: 0.85rem; }
+        .scheme-card { margin: 0; border: 1px solid rgba(255,255,255,0.12); border-radius: 14px; overflow: hidden; background: #ffffff; }
+        .scheme-card img { display: block; width: 100%; height: auto; }
+        .scheme-card figcaption { display: flex; flex-wrap: wrap; gap: 10px 16px; align-items: center; justify-content: space-between; padding: 10px 14px; border-top: 1px solid #e5e7eb; background: #ffffff; color: #4b5563; font-size: 0.82rem; }
+        .scheme-open { color: #166534; font-weight: 600; text-decoration: underline; text-underline-offset: 3px; background: none; border: 0; padding: 0; cursor: pointer; font-family: inherit; font-size: 0.82rem; }
+        .scheme-open:hover { color: #14532d; }
+
+        @media (max-width: 640px) {
+            .photo-grid { grid-template-columns: 1fr; }
+        }

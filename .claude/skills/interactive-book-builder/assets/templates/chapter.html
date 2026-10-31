@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BOOK_TITLE | Глава 1</title>
+    <link rel="stylesheet" href="../_shared/shell.css">
+    <link rel="stylesheet" href="../cover/cover.css">
+</head>
+<body data-book-title="BOOK_TITLE" data-book-subtitle="BOOK_SUBTITLE">
+
+    <div class="book-container">
+        <!-- Окна главы. Сборка переносит их в книгу. -->
+        <!-- CHAPTER-MODALS:START -->
+        <div class="modal-overlay" id="exampleModal" role="dialog" aria-modal="true" aria-labelledby="exampleTitle" onclick="hideModal('exampleModal')">
+            <div class="modal-content" onclick="event.stopPropagation()">
+                <button type="button" class="modal-close" aria-label="Закрыть окно" onclick="hideModal('exampleModal')"></button>
+                <h2 id="exampleTitle" style="margin-top: 0; color: var(--accent-color); font-size: 1.45rem; letter-spacing: 0.4px;">Заголовок окна</h2>
+                <p style="color: var(--text-dim); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.08em; margin: 6px 0 15px;">Подзаголовок окна</p>
+                <p style="color: var(--text-main); font-size: 1.05rem;">Текст окна. Внутри можно использовать карточки, таблицы, схемы — стили уже подключены.</p>
+                <div class="project-grid">
+                    <div class="project-card">
+                        <strong>Карточка</strong>
+                        <div>Короткая мысль или цифра.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- CHAPTER-MODALS:END -->
+
+        <div id="cover-host"></div>
+        <div class="toc" id="mainTOC"></div>
+    </div>
+
+    <!-- CHAPTER-DATA:START -->
+    <!-- Данные главы: единственный источник правды. Их читают страница главы и сборка книги.
+         order — порядок в книге. Целые 1, 2, 3…; для вставки между главами — дробное (3.5).
+         Ссылка на окно: { "text": "...", "links": [{ "label": "слово", "modal": "exampleModal" }] }.
+         label должно встречаться в тексте — по нему ставится ссылка. -->
+    <script type="application/json" id="chapter-data">
+    {
+      "order": 1,
+      "title": "Название главы одной фразой",
+      "ready": true,
+      "content": [
+        {
+          "title": "Первый параграф",
+          "theses": [
+            "Тезис без ссылки.",
+            {
+              "text": "Тезис со ссылкой на окно: нажмите на ссылку в конце фразы.",
+              "links": [{ "label": "ссылку", "modal": "exampleModal" }]
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+    <!-- CHAPTER-DATA:END -->
+
+    <script src="../cover/cover.js"></script>
+    <script src="../_shared/shell.js"></script>
+</body>
+</html>

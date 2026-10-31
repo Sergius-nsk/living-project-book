@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BSF-фермы | Глава 9</title>
+    <link rel="stylesheet" href="../_shared/shell.css">
+    <link rel="stylesheet" href="../cover/cover.css">
+</head>
+<body data-book-title="Роботизированные BSF-фермы" data-book-subtitle="Трансформация пищевых отходов в высокорентабельный протеин">
+
+    <div class="book-container">
+        <!-- CHAPTER-MODALS:START -->
+<div class="modal-overlay" id="innovationsModal" role="dialog" aria-modal="true" aria-labelledby="innovationsTitle" onclick="hideModal('innovationsModal')">
+            <div class="modal-content" onclick="event.stopPropagation()">
+                <button type="button" class="modal-close" aria-label="Закрыть окно" onclick="hideModal('innovationsModal')"></button>
+                <h2 id="innovationsTitle" style="margin-top: 0; color: var(--accent-color); font-size: 1.45rem; letter-spacing: 0.4px;">Инновации проекта</h2>
+                <p style="color: var(--text-dim); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.08em; margin: 6px 0 15px;">Распределены по всему техпроцессу</p>
+                <p style="color: var(--text-main); font-size: 1.05rem; margin-bottom: 5px;">Инновации не сосредоточены в одном узле — они распределены по технологии и оборудованию, и каждая работает на рентабельность.</p>
+                <div class="project-grid" style="margin-top: 15px;">
+                    <div class="project-card">
+                        <strong>Модуль выращивания</strong>
+                        <div>Активная производственная единица вместо пассивного лотка.</div>
+                    </div>
+                    <div class="project-card">
+                        <strong>Микроклимат и обслуживание</strong>
+                        <div>Конструкция модуля плюс роботизированная система обслуживания.</div>
+                    </div>
+                    <div class="project-card">
+                        <strong>Переработка</strong>
+                        <div>Сушка личинки, извлечение жира, переработка фрасса в удобрение.</div>
+                    </div>
+                    <div class="project-card">
+                        <strong>Энергетика</strong>
+                        <div>Сжигатель, теплообменник и рекуперация тепла внутри контура.</div>
+                    </div>
+                    <div class="project-card">
+                        <strong>Данные и ИИ</strong>
+                        <div>Техническое зрение и адаптивное управление там, где традиционная АСУ не справляется.</div>
+                    </div>
+                </div>
+                <p style="color: var(--text-dim); font-size: 0.85rem; margin-top: 18px;">Подробный разбор — в следующей главе.</p>
+            </div>
+        </div>
+
+<div class="modal-overlay" id="containerRobotModal" role="dialog" aria-modal="true" aria-labelledby="containerRobotTitle" onclick="hideModal('containerRobotModal')">
+            <div class="modal-content" onclick="event.stopPropagation()">
+                <button type="button" class="modal-close" aria-label="Закрыть окно" onclick="hideModal('containerRobotModal')"></button>
+                <h2 id="containerRobotTitle" style="margin-top: 0; color: var(--accent-color); font-size: 1.45rem; letter-spacing: 0.4px;">Контейнер-робот</h2>
+                <p style="color: var(--text-dim); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.08em; margin: 6px 0 15px;">Продукт второго этапа</p>
+                <p style="color: var(--text-main); font-size: 1.05rem; margin-bottom: 5px;">На рынок выходит не ферма, а роботизированный контейнер выращивания личинки.</p>
+                <div class="project-grid" style="margin-top: 15px;">
+                    <div class="project-card">
+                        <strong>Что внутри</strong>
+                        <div>Каркас с модулями выращивания и роботизированной системой их обслуживания.</div>
+                    </div>
+                    <div class="project-card">
+                        <strong>Формат</strong>
+                        <div>20- или 40-футовый транспортный контейнер — готовая технологическая, рыночная и транспортная единица.</div>
+                    </div>
+                    <div class="project-card">
+                        <strong>Почему это рынок</strong>
+                        <div>Оборудование тиражируется, и для выхода на рынок не нужно ждать реализации всех инноваций проекта.</div>
+                    </div>
+                </div>
+                <div style="margin-top: 20px; padding: 20px; border-radius: 15px; background: rgba(255,255,255,0.03); border-left: 3px solid var(--accent-color);">
+                    <strong style="color: var(--accent-color);">Смысл:</strong> выход на рынок оборудования — уже на втором этапе инвестирования, а не после завершения всех разработок.
+                </div>
+            </div>
+        </div>
+
+<div class="modal-overlay" id="trendModal" role="dialog" aria-modal="true" aria-labelledby="trendTitle" onclick="hideModal('trendModal')">
+            <div class="modal-content" onclick="event.stopPropagation()">
+                <button type="button" class="modal-close" aria-label="Закрыть окно" onclick="hideModal('trendModal')"></button>
+                <h2 id="trendTitle" style="margin-top: 0; color: var(--accent-color); font-size: 1.45rem; letter-spacing: 0.4px;">Разделение инкубатора и выращивания</h2>
+                <p style="color: var(--text-dim); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.08em; margin: 6px 0 15px;">Модуль едет к отходам</p>
+                <p style="color: var(--text-main); font-size: 1.05rem; margin-bottom: 5px;">Современный тренд: инкубация, ясельный период и родительская популяция отделены от выращивания продуктовой личинки.</p>
+                <div class="project-grid" style="margin-top: 15px;">
+                    <div class="project-card">
+                        <strong><a href="https://goterra.com.au/" target="_blank" rel="noopener noreferrer" style="color: var(--accent-color); text-decoration: underline;">Goterra</a>, Австралия</strong>
+                        <div>Модульные роботизированные фермы в контейнерах, около 5 т пищевых отходов в сутки на модуль. Модули размещают у источника отходов. Одна из первых австралийских компаний в этой нише: A$8 млн Series A в 2020 году, около $10 млн привлечено в 2024–2025 годах.</div>
+                    </div>
+                    <div class="project-card">
+                        <strong><a href="https://betterorigin.co.uk/" target="_blank" rel="noopener noreferrer" style="color: var(--accent-color); text-decoration: underline;">Better Origin</a>, Великобритания</strong>
+                        <div>Контейнер X1 с ИИ-системой Overmind размещается прямо на ферме. $16 млн Series A в 2022 году; десять модулей для сети Morrisons.</div>
+                    </div>
+                    <div class="project-card">
+                        <strong>Логика модели</strong>
+                        <div>Модуль выращивания подвозят к отходам — фудкорту, агрокомплексу, — а не отходы к ферме. Инкубатор и ясли остаются в центральном хабе.</div>
+                    </div>
+                </div>
+                <div style="margin-top: 20px; padding: 20px; border-radius: 15px; background: rgba(255,255,255,0.03); border-left: 3px solid var(--accent-color);">
+                    <strong style="color: var(--accent-color);">Вывод:</strong> это подтверждает выбранную архитектуру — выращивание как отдельный модуль, который можно тиражировать.
+                </div>
+                <p style="color: var(--text-dim); font-size: 0.82rem; margin-top: 20px;">Источники: <a href="https://agfundernews.com/tenacious-co-leads-goterras-6m-series-a-to-launch-australias-first-agrifoodtech-vc" target="_blank" rel="noopener noreferrer" style="color: var(--accent-color); text-decoration: underline;">AgFunderNews: Series A Goterra</a>; <a href="https://www.afr.com/technology/can-our-most-loved-least-funded-founder-turn-garbage-into-gold-20241203-p5kvem" target="_blank" rel="noopener noreferrer" style="color: var(--accent-color); text-decoration: underline;">AFR: раунд Goterra 2024–2025</a>; <a href="https://techcrunch.com/2022/04/07/better-origin-series-a/" target="_blank" rel="noopener noreferrer" style="color: var(--accent-color); text-decoration: underline;">TechCrunch: Better Origin Series A</a>; <a href="https://betterorigin.co.uk/2020/06/worlds-first-fully-automated-ai-powered-insect-mini-farm-is-set-to-revolutionise-the-food-industry/" target="_blank" rel="noopener noreferrer" style="color: var(--accent-color); text-decoration: underline;">Better Origin: X1</a>.</p>
+            </div>
+        </div>
+        <!-- CHAPTER-MODALS:END -->
+        <div id="cover-host"></div>
+        <div class="toc" id="mainTOC"></div>
+    </div>
+
+    <!-- CHAPTER-DATA:START -->
+    <!-- Данные главы: единственный источник правды. Их читают страница главы и сборка книги.
+         order — порядок в книге (можно ставить 3.5, чтобы вставить главу между 3 и 4). -->
+    <script type="application/json" id="chapter-data">
+    {
+      "order": 9,
+      "title": "Подтверждение гипотезы первого этапа позволит уже на втором этапе выйти на современный рынок оборудования ферм BSF.",
+      "ready": true,
+      "content": [
+        {
+          "title": "",
+          "theses": [
+            {
+              "text": "В проекте много инноваций, и все они направлены на повышение рентабельности BSF-ферм. Ждать, пока реализуются все задуманные усовершенствования, нельзя: деньги инвесторов будут расходоваться, а выхода на рынок не будет.",
+              "links": [
+                {
+                  "label": "инноваций",
+                  "modal": "innovationsModal"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "",
+          "theses": [
+            {
+              "text": "Поэтому уже на втором этапе предлагается вывести на рынок роботизированный контейнер выращивания личинки. Именно контейнер-робот даёт выход на рынок оборудования, а не на рынок ещё одной фермы.",
+              "links": [
+                {
+                  "label": "роботизированный контейнер",
+                  "modal": "containerRobotModal"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "",
+          "theses": [
+            {
+              "text": "Такой подход соответствует современному тренду: инкубация, ясельный период и родительская популяция отделены от выращивания продуктовой личинки. Модуль выращивания подвозят к источнику отходов — например, к фудкорту.",
+              "links": [
+                {
+                  "label": "современному тренду",
+                  "modal": "trendModal"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+    <!-- CHAPTER-DATA:END -->
+
+    <script src="../cover/cover.js"></script>
+    <script src="../_shared/shell.js"></script>
+</body>
+</html>

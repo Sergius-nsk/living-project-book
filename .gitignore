@@ -1,0 +1,31 @@
+# Материалы, которые не входят в публичный репозиторий:
+# исходные исследования, оригиналы изображений, расчёты, отчёты и личные заметки.
+docs/
+media-src/
+data/
+reports/
+Контент/
+landing/
+dist/
+tmp/
+session-state.md
+CLAUDE.md
+
+# Резервная копия книги: воспроизводится сборкой
+Landing-book/index-prev.html
+
+# Служебные файлы Claude, кроме публикуемого скилла
+.claude/agents/
+.claude/skills/*
+!.claude/skills/interactive-book-builder/
+.claude/settings.local.json
+
+# Профили браузера, которые создают скрипты проверки
+**/chrome-profile/
+**/.probe-chrome-profile/
+
+# Системный мусор
+node_modules/
+Thumbs.db
+Desktop.ini
+*.log

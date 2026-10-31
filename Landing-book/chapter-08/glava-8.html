@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BSF-фермы | Глава 8</title>
+    <link rel="stylesheet" href="../_shared/shell.css">
+    <link rel="stylesheet" href="../cover/cover.css">
+</head>
+<body data-book-title="Роботизированные BSF-фермы" data-book-subtitle="Трансформация пищевых отходов в высокорентабельный протеин">
+
+    <div class="book-container">
+        <!-- CHAPTER-MODALS:START -->
+<div class="modal-overlay" id="mockupExperimentModal" role="dialog" aria-modal="true" aria-labelledby="mockupExperimentTitle" onclick="hideModal('mockupExperimentModal')">
+            <div class="modal-content" onclick="event.stopPropagation()">
+                <button type="button" class="modal-close" aria-label="Закрыть окно" onclick="hideModal('mockupExperimentModal')"></button>
+                <h2 id="mockupExperimentTitle" style="margin-top: 0; color: var(--accent-color); font-size: 1.45rem; letter-spacing: 0.4px;">Эксперимент с макетом</h2>
+                <p style="color: var(--text-dim); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.08em; margin: 6px 0 15px;">Проектные габариты, лабораторный уровень проверки</p>
+                <p style="color: var(--text-main); font-size: 1.1rem; margin-bottom: 5px;">Эксперимент с личинкой оставался лабораторным: проверялось только соответствие модуля условиям обитания, но он показал — концепция альтернативы лоткам выбрана верно.</p>
+                <div class="project-grid" style="margin-top: 15px;">
+                    <div class="project-card">
+                        <strong>Что изготовили</strong>
+                        <div>Макет модуля проектного размера — под место в 20- или 40-футовом контейнере. В контейнер вставляется каркас с модулями выращивания и роботизированной системой обслуживания.</div>
+                    </div>
+                    <div class="project-card">
+                        <strong>Что проверяли</strong>
+                        <div>Только соответствие модуля условиям обитания личинки: будет ли она жить в нём при штатном обслуживании.</div>
+                    </div>
+                    <div class="project-card">
+                        <strong>Что показал</strong>
+                        <div>Личинка в модуле живёт и обслуживается. Концепция альтернативы лоткам подтверждена на лабораторном уровне.</div>
+                    </div>
+                </div>
+                <div style="margin-top: 20px; padding: 20px; border-radius: 15px; background: rgba(255,255,255,0.03); border-left: 3px solid var(--accent-color);">
+                    <strong style="color: var(--accent-color);">Двоякий характер макета:</strong> габариты — проектные, эксперимент по обитаемости — лабораторный.
+                </div>
+            </div>
+        </div>
+
+<div class="modal-overlay" id="prototypeMvpModal" role="dialog" aria-modal="true" aria-labelledby="prototypeMvpTitle" onclick="hideModal('prototypeMvpModal')">
+            <div class="modal-content" onclick="event.stopPropagation()">
+                <button type="button" class="modal-close" aria-label="Закрыть окно" onclick="hideModal('prototypeMvpModal')"></button>
+                <h2 id="prototypeMvpTitle" style="margin-top: 0; color: var(--accent-color); font-size: 1.45rem; letter-spacing: 0.4px;">Прототип или MVP</h2>
+                <p style="color: var(--text-dim); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.08em; margin: 6px 0 15px;">Два варианта — две суммы</p>
+                <p style="color: var(--text-main); font-size: 1.05rem; margin: 0 0 10px;">Выбор зависит от суммы привлечённых средств: прототип — около 5 млн рублей, MVP — около 10 млн.</p>
+                <div class="compare-wrap">
+                    <table class="compare-table">
+                        <thead>
+                            <tr>
+                                <th>Вариант</th>
+                                <th>Ориентир стоимости</th>
+                                <th>Что даёт</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Прототип</td><td>около 5 млн ₽</td><td>подтверждение конструкции и условий выращивания</td></tr>
+                            <tr><td>MVP</td><td>около 10 млн ₽</td><td>работоспособный модуль с автоматизацией и роботизацией для испытаний</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div style="margin-top: 20px; padding: 20px; border-radius: 15px; background: rgba(255,255,255,0.03); border-left: 3px solid var(--accent-color);">
+                    <strong style="color: var(--accent-color);">Почему цифры круглые:</strong> Круглые цифры вызывают у инвесторов недоверие, но на раннем этапе низкая точность оценки объективна. Чем раньше стадия проекта, тем ниже точность сметы — это не признак плохой проработки.
+                </div>
+            </div>
+        </div>
+
+<div class="modal-overlay" id="stageGoalsModal" role="dialog" aria-modal="true" aria-labelledby="stageGoalsTitle" onclick="hideModal('stageGoalsModal')">
+            <div class="modal-content" onclick="event.stopPropagation()">
+                <button type="button" class="modal-close" aria-label="Закрыть окно" onclick="hideModal('stageGoalsModal')"></button>
+                <h2 id="stageGoalsTitle" style="margin-top: 0; color: var(--accent-color); font-size: 1.45rem; letter-spacing: 0.4px;">Цели первого этапа</h2>
+                <p style="color: var(--text-dim); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.08em; margin: 6px 0 15px;">Что нужно доказать и проверить</p>
+                <p style="color: var(--text-main); font-size: 1.05rem; margin: 0 0 15px;">Этап должен показать, что решение улучшает условия выращивания личинки и позволяет роботизировать процесс.</p>
+                <div class="project-grid">
+                    <div class="project-card">
+                        <strong>Условия лучше, чем у бройлера</strong>
+                        <div>Показать, что модуль улучшает условия выращивания личинки по сравнению с условиями выращивания бройлера на птицефабрике.</div>
+                    </div>
+                    <div class="project-card">
+                        <strong>Оптимальная автоматизация</strong>
+                        <div>Выбрать и протестировать оптимальный вариант автоматизации и роботизации модуля.</div>
+                    </div>
+                    <div class="project-card">
+                        <strong>Снижение ФОТ</strong>
+                        <div>Снизить фонд оплаты труда на этапе выращивания личинки — самом трудоёмком и наиболее трудно роботизируемом этапе техпроцесса.</div>
+                    </div>
+                </div>
+                <p style="color: var(--text-dim); font-size: 0.85rem; margin-top: 18px;">Главный резерв затрат — выращивание. Именно там проверяется гипотеза и создаётся основа для масштабирования.</p>
+                <p style="color: var(--text-dim); font-size: 0.85rem; margin-top: 10px;">Технические подробности устройства модуля — после NDA: ИС ещё готовится.</p>
+            </div>
+        </div>
+        <!-- CHAPTER-MODALS:END -->
+        <div id="cover-host"></div>
+        <div class="toc" id="mainTOC"></div>
+    </div>
+
+    <!-- CHAPTER-DATA:START -->
+    <!-- Данные главы: единственный источник правды. Их читают страница главы и сборка книги.
+         order — порядок в книге (можно ставить 3.5, чтобы вставить главу между 3 и 4). -->
+    <script type="application/json" id="chapter-data">
+    {
+      "order": 8,
+      "title": "Предлагаемый первый этап проекта – проверка гипотезы альтернативы лоткам.",
+      "ready": true,
+      "content": [
+        {
+          "title": "Эксперимент",
+          "theses": [
+            {
+              "text": "Первые эксперименты с макетом модуля выращивания уже проведены. Они носили двоякий характер.",
+              "links": [
+                {
+                  "label": "двоякий характер",
+                  "modal": "mockupExperimentModal"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Что предлагается на первом этапе",
+          "theses": [
+            {
+              "text": "На первом этапе предлагается изготовить прототип или MVP модуля выращивания.",
+              "links": [
+                {
+                  "label": "прототип или MVP",
+                  "modal": "prototypeMvpModal"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Что нужно доказать",
+          "theses": [
+            {
+              "text": "Этап должен показать, что решение улучшает условия выращивания личинки и позволяет роботизировать процесс.",
+              "links": [
+                {
+                  "label": "показать",
+                  "modal": "stageGoalsModal"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+    <!-- CHAPTER-DATA:END -->
+
+    <script src="../cover/cover.js"></script>
+    <script src="../_shared/shell.js"></script>
+</body>
+</html>

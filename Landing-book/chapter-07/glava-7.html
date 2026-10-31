@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BSF-фермы | Глава 7</title>
+    <link rel="stylesheet" href="../_shared/shell.css">
+    <link rel="stylesheet" href="../cover/cover.css">
+</head>
+<body data-book-title="Роботизированные BSF-фермы" data-book-subtitle="Трансформация пищевых отходов в высокорентабельный протеин">
+
+    <div class="book-container">
+        <!-- CHAPTER-MODALS:START -->
+<div class="modal-overlay" id="activeModuleModal" role="dialog" aria-modal="true" aria-labelledby="activeModuleTitle" onclick="hideModal('activeModuleModal')">
+            <div class="modal-content" onclick="event.stopPropagation()">
+                <button type="button" class="modal-close" aria-label="Закрыть окно" onclick="hideModal('activeModuleModal')"></button>
+                <h2 id="activeModuleTitle" style="margin-top: 0; color: var(--accent-color); font-size: 1.45rem; letter-spacing: 0.4px;">Активный модуль выращивания</h2>
+                <p style="color: var(--text-main); font-size: 1.1rem; margin: 6px 0 5px;">По функциям это аналог клеточного яруса птичника, а не лотка.<br>Модуль, в отличие от лотка, создаёт контролируемую, максимально комфортную среду обитания для личинки. Внутри него личинка получает то, чего лоток дать не может.</p>
+
+                <div class="project-grid" style="margin-top: 20px;">
+                    <div class="project-card">
+                        <strong>В отличие от лотка</strong>
+                        <div>Модуль обеспечивает все необходимые условия выращивания: температуру, влажность и питание. Эти условия хорошо контролируемы и управляемы.</div>
+                    </div>
+                    <div class="project-card">
+                        <strong>В отличие от клетки на птицефабрике</strong>
+                        <div>Модуль даёт даже более контролируемый, автоматизированный и управляемый режим выращивания личинки, чем режим выращивания бройлера.</div>
+                    </div>
+                    <div class="project-card">
+                        <strong>Чем это обеспечено</strong>
+                        <div>Конструкцией модуля и роботизированной системой его обслуживания. Система разрабатывается специально для BSF-фермы, хотя частично собирается из существующих общепромышленных устройств автоматизации и роботизации.</div>
+                    </div>
+                </div>
+
+                <div style="margin-top: 25px; padding: 20px; border-radius: 15px; background: rgba(255,255,255,0.03); border-left: 3px solid var(--accent-color);">
+                    <strong style="color: var(--accent-color);">Суть:</strong> комфортные условия для личинки — это не биология, а инженерия: конструкция модуля плюс роботизированное обслуживание.
+                </div>
+
+                <p style="color: var(--text-dim); font-size: 0.82rem; margin-top: 20px;">Оценка проекта; проверяется на прототипе.</p>
+            </div>
+        </div>
+
+<div class="modal-overlay" id="robotizationModal" role="dialog" aria-modal="true" aria-labelledby="robotizationTitle" onclick="hideModal('robotizationModal')">
+            <div class="modal-content" onclick="event.stopPropagation()">
+                <button type="button" class="modal-close" aria-label="Закрыть окно" onclick="hideModal('robotizationModal')"></button>
+                <h2 id="robotizationTitle" style="margin-top: 0; color: var(--accent-color); font-size: 1.45rem; letter-spacing: 0.4px;">Роботизация всей фермы</h2>
+                <p style="color: var(--text-dim); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.08em; margin: 6px 0 15px;">ИИ-агенты там, где АСУ не справляется</p>
+                <p style="color: var(--text-main); font-size: 1.1rem; margin-bottom: 5px;">Общая схема роботизации производственного комплекса уже есть. Она показывает: роботизировать можно всю ферму, а не отдельные операции.</p>
+
+                <h3 style="margin: 25px 0 10px; color: var(--accent-color); font-size: 1rem;">Схема роботизации комплекса</h3>
+                <figure class="scheme-card">
+                    <img src="../assets/img/ch06/schemes/autonomous_pyramid.webp" alt="Пирамида автономности BSF-фермы: блоки техпроцесса, управляющие агенты, CPO, бизнес- и стратегические агенты, CEO" loading="lazy">
+                    <figcaption>
+                        <span>Пирамида автономности: блоки техпроцесса, управляющие агенты, CPO, бизнес- и стратегические агенты, CEO.</span>
+                        <button type="button" class="scheme-open" onclick="event.stopPropagation(); openSchemeViewer(this, 'Пирамида автономности')">Открыть изображение схемы</button>
+                    </figcaption>
+                </figure>
+                <p style="color: var(--text-main); font-size: 0.95rem; margin-top: 12px;">От блоков техпроцесса к управляющим агентам, затем к CPO и верхним уровням. Каждый участок фермы получает своего агента и передаёт данные наверх.</p>
+
+                <h3 style="margin: 25px 0 10px; color: var(--accent-color); font-size: 1rem;">ИИ-агенты в контуре управления</h3>
+                <figure class="scheme-card">
+                    <img src="../assets/img/ch06/schemes/enterprise_pyramid.webp" alt="Архитектура автономного предприятия BSF: производственный, сервисный и корпоративный контуры" loading="lazy">
+                    <figcaption>
+                        <span>Архитектура автономного предприятия: производственный, сервисный и корпоративный контуры.</span>
+                        <button type="button" class="scheme-open" onclick="event.stopPropagation(); openSchemeViewer(this, 'Архитектура автономного предприятия')">Открыть изображение схемы</button>
+                    </figcaption>
+                </figure>
+                <p style="color: var(--text-main); font-size: 0.95rem; margin-top: 12px;">В таком виде — с ИИ-агентами — можно роботизировать всю ферму. Но полная роботизация только на ИИ-агентах не рациональна.</p>
+
+                <h3 style="margin: 25px 0 10px; color: var(--accent-color); font-size: 1rem;">Где ИИ нужен, а где нет</h3>
+                <div class="project-grid">
+                    <div class="project-card">
+                        <strong>Традиционные АСУ</strong>
+                        <div>Там, где операции вполне обходятся без ИИ-агентов, отказываться от традиционных АСУ-решений нет смысла.</div>
+                    </div>
+                    <div class="project-card">
+                        <strong>ИИ-агенты</strong>
+                        <div>Там, где их применение позволяет улучшить техпроцесс, а традиционные АСУ с этим справиться не могут.</div>
+                    </div>
+                    <div class="project-card">
+                        <strong>Гибридный контур</strong>
+                        <div>АСУ держит стабильность и безопасность процесса, ИИ добавляет адаптацию и оптимизацию там, где нужен.</div>
+                    </div>
+                </div>
+
+                <h3 style="margin: 25px 0 10px; color: var(--accent-color); font-size: 1rem;">Пример: техническое зрение в выращивании</h3>
+                <p style="color: var(--text-main); font-size: 0.95rem; margin: 0 0 10px;">В систему управления вводится техническое зрение. Появляется дополнительный параметр контроля — характер движения личинок.</p>
+                <div style="display: grid; gap: 8px; color: var(--text-main); font-size: 0.95rem;">
+                    <div><strong style="color: var(--accent-color);">При питании</strong> движение личинок одно.</div>
+                    <div><strong style="color: var(--accent-color);">При перегреве</strong> личинки начинают интенсивно двигаться, перестают питаться и ищут спасения от повышенной температуры.</div>
+                    <div><strong style="color: var(--accent-color);">При переохлаждении</strong> становятся малоподвижными и вялыми, склонными к анабиозу; тоже перестают питаться, но по другой причине.</div>
+                </div>
+                <p style="color: var(--text-main); font-size: 0.95rem; margin: 10px 0 0;">Проанализировать такие изменения в характере движения без использования ИИ очень сложно. Ещё сложнее выдать системе жизнеобеспечения модуля сигнал управления, который устраняет дискомфорт для личинки.</p>
+
+                <div style="margin-top: 25px; padding: 20px; border-radius: 15px; background: rgba(255,255,255,0.03); border-left: 3px solid var(--accent-color);">
+                    <strong style="color: var(--accent-color);">Вывод:</strong> рациональная роботизация — гибрид. АСУ держит процесс, ИИ видит то, что датчики не описывают.
+                </div>
+
+            </div>
+        </div>
+
+<div class="modal-overlay" id="schemeViewerModal" role="dialog" aria-modal="true" aria-labelledby="schemeViewerTitle" onclick="hideModal('schemeViewerModal')">
+            <div class="modal-content" onclick="event.stopPropagation()" style="max-width: 1400px;">
+                <button type="button" class="modal-close" aria-label="Закрыть окно" onclick="hideModal('schemeViewerModal')"></button>
+                <h2 id="schemeViewerTitle" style="margin-top: 0; color: var(--accent-color); font-size: 1.2rem; letter-spacing: 0.4px;">Схема</h2>
+                <img id="schemeViewerImage" alt="" style="display: block; width: 100%; height: auto; border-radius: 10px; background: #ffffff;">
+                <p style="color: var(--text-dim); font-size: 0.82rem; margin-top: 10px;">Нажмите Esc, чтобы закрыть.</p>
+            </div>
+        </div>
+        <!-- CHAPTER-MODALS:END -->
+        <div id="cover-host"></div>
+        <div class="toc" id="mainTOC"></div>
+    </div>
+
+    <!-- CHAPTER-DATA:START -->
+    <!-- Данные главы: единственный источник правды. Их читают страница главы и сборка книги.
+         order — порядок в книге (можно ставить 3.5, чтобы вставить главу между 3 и 4). -->
+    <script type="application/json" id="chapter-data">
+    {
+      "order": 7,
+      "title": "Наше решение – активный модуль выращивания – альтернатива лоткам, которое позволит БЛК конкурировать с рыбной мукой.",
+      "ready": true,
+      "content": [
+        {
+          "title": "",
+          "theses": [
+            {
+              "text": "Наш модуль по функциям является аналогом клеточного яруса в птичнике.",
+              "links": [
+                {
+                  "label": "модуль",
+                  "modal": "activeModuleModal"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "",
+          "theses": [
+            {
+              "text": "В модуле устранены основные недостатки лотков и добавлены новые качества, позволяющие роботизировать как процесс выращивания личинки, так и всю BSF-ферму в целом.",
+              "links": [
+                {
+                  "label": "роботизировать",
+                  "modal": "robotizationModal"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+    <!-- CHAPTER-DATA:END -->
+
+    <script src="../cover/cover.js"></script>
+    <script src="../_shared/shell.js"></script>
+</body>
+</html>

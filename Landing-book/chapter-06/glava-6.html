@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BSF-фермы | Глава 6</title>
+    <link rel="stylesheet" href="../_shared/shell.css">
+    <link rel="stylesheet" href="../cover/cover.css">
+</head>
+<body data-book-title="Роботизированные BSF-фермы" data-book-subtitle="Трансформация пищевых отходов в высокорентабельный протеин">
+
+    <div class="book-container">
+        <!-- CHAPTER-MODALS:START -->
+<div class="modal-overlay" id="whoWeAreModal" role="dialog" aria-modal="true" aria-labelledby="whoWeAreTitle" onclick="hideModal('whoWeAreModal')">
+            <div class="modal-content" onclick="event.stopPropagation()">
+                <button type="button" class="modal-close" aria-label="Закрыть окно" onclick="hideModal('whoWeAreModal')"></button>
+                <h2 id="whoWeAreTitle" style="margin-top: 0; color: var(--accent-color); text-transform: uppercase; letter-spacing: 1px;">Кто такие «Мы/Я»</h2>
+                <div class="person-head">
+                    <div class="person-photo"><img src="../assets/img/ch06/experience/sergey-vilchek-3x4.webp" alt="Сергей Вильчек" loading="lazy"></div>
+                    <div style="flex: 1 1 280px;">
+                        <div class="person-name">Сергей Вильчек</div>
+                        <div class="person-role">Инженер · более 25 лет в инноватике</div>
+                        <p style="color: var(--text-dim); font-size: 0.9rem; margin: 8px 0 0;">Связаться: <a href="tel:+79965457681" style="color: var(--accent-color); text-decoration: underline;">+7 996 545-76-81</a> · <a href="mailto:Sv195503@yandex.ru" style="color: var(--accent-color); text-decoration: underline;">Sv195503@yandex.ru</a></p>
+                        <p style="color: var(--text-main); font-size: 1.05rem; margin: 10px 0 0;">По образованию — инженер-судостроитель, кандидат технических наук; почти 20 лет преподавал строительную механику и сопротивление материалов в вузе. Более 25 лет в инноватике — началось ещё в вузе. Сейчас занимаюсь экологическими проектами: разрабатываю оборудование и техпроцессы для переработки органических отходов. В проектах моя роль — выдвинуть идею, довести её до концепции оборудования и техпроцесса, защитить интеллектуальную собственность и содействовать выводу проекта на рынок.</p>
+                    </div>
+                </div>
+
+                <h3 style="margin: 25px 0 10px; color: var(--accent-color); font-size: 1rem;">Что я делаю в проекте</h3>
+                <div class="project-grid">
+                    <div class="project-card">
+                        <strong>Идея и развитие</strong>
+                        <div>Гипотеза, концепция, поиск синергии по линии «технологии — оборудование».</div>
+                    </div>
+                    <div class="project-card">
+                        <strong>Техпроцесс и оборудование</strong>
+                        <div>Модификация технологии, разработка и изготовление оборудования под неё; оптимизация капитальных и эксплуатационных затрат, в том числе за счёт сокращения персонала.</div>
+                    </div>
+                    <div class="project-card">
+                        <strong>Защита интеллектуальной собственности</strong>
+                        <div>Выбор формы защиты: изобретение, полезная модель, ноу-хау. Работа с патентоведами, заявки PCT, переписка с патентными ведомствами.</div>
+                    </div>
+                    <div class="project-card">
+                        <strong>Коммуникации и отчётность</strong>
+                        <div>Внешняя среда проекта, включая международную; отчёты по НИОКР; международное продвижение проектов.</div>
+                    </div>
+                </div>
+
+                <h3 style="margin: 25px 0 10px; color: var(--accent-color); font-size: 1rem;">Проекты, доведённые до оборудования</h3>
+                <div class="project-grid">
+                    <div class="project-card">
+                        <strong>Индий полупроводниковой чистоты</strong>
+                        <div>Извлечение индия из отходов индийсодержащих припоев и очистка до полупроводниковой чистоты. Поставки в Японию и ЕС через внешнеторговые организации. Защита — ноу-хау. Проект закрыт из-за исчерпания сырья в РФ.</div>
+                    </div>
+                    <div class="project-card">
+                        <strong>Галлий из оборотных растворов БАЗ</strong>
+                        <div>Извлечение галлия из растворов глинозёмного производства Богословского алюминиевого завода. Проект прошёл три стадии НИОКР, на заводе установлена промышленная электролизная ванна. Второй этап — в Новосибирске с участием НИИ СО РАН: опытные партии и выход из проекта с плюсом. Патенты РФ, полезная модель, ноу-хау. Остановлен из-за смены владельца завода.</div>
+                    </div>
+                    <div class="project-card">
+                        <strong>Утилизация клеточного помёта</strong>
+                        <div>Три программы СТАРТ Фонда содействия инновациям (2010–2016). Опытный образец мощностью более 30 кВт. Пилот на АО «Новосибирская птицефабрика» (агрохолдинг «Сибирский Премьер»). Патенты РФ и заявка PCT.</div>
+                    </div>
+                    <div class="project-card">
+                        <strong>Илы очистных сооружений</strong>
+                        <div>Финалист GenerationS Power&Energy 2018. На этом мероприятии сложилось партнёрство с предпринимателем из Риги: по его итогам через «Реактор Коммерциализации» запущен проект <a href="http://empyrio.com/" target="_blank" rel="noopener noreferrer" style="color: var(--accent-color); text-decoration: underline;">Empyrio</a> — та же интеллектуальная собственность и оборудование применены к осадкам сточных вод. Международный проект в ЕС на базе PCT, Рига: привлечено более 400 тыс. евро, пилот 2024 года. Показывает переносимость решения на разные виды органических отходов.</div>
+                    </div>
+                </div>
+
+                <h3 style="margin: 25px 0 10px; color: var(--accent-color); font-size: 1rem;">Помёт → BSF: основная база перехода</h3>
+                <div class="chain">
+                    <span class="chain-step">Птицефабрика</span>
+                    <span class="chain-arrow">→</span>
+                    <span class="chain-step">Переработка помёта</span>
+                    <span class="chain-arrow">→</span>
+                    <span class="chain-step">Теплотехника и автоматизация</span>
+                    <span class="chain-arrow">→</span>
+                    <span class="chain-step">BSF-ферма</span>
+                </div>
+                <p style="color: var(--text-dim); font-size: 0.9rem; margin: 5px 0 0;">Именно проект по утилизации помёта позволил перейти к BSF. Его технологии и оборудование переносятся в переработку личинки и фрасса, а сравнение птицефабрики и BSF-фермы дало гипотезу о смене производственной единицы.</p>
+
+                <h3 style="margin: 25px 0 10px; color: var(--accent-color); font-size: 1rem;">Проекты в проработке</h3>
+                <div class="project-grid">
+                    <div class="project-card">
+                        <strong>КБ-ИИ</strong>
+                        <div>Конструкторское бюро на ИИ-агентах: разработка оборудования и конструкторской документации.</div>
+                    </div>
+                    <div class="project-card">
+                        <strong>Проект_РЭО</strong>
+                        <div>Переработка помёта в удобрения: двухэтапная модель 30 → 300 т в сутки.</div>
+                    </div>
+                    <div class="project-card">
+                        <strong>ИИ-ферма для BSF</strong>
+                        <div>Этот проект: автоматизированная ферма чёрной львинки.</div>
+                    </div>
+                    <div class="project-card">
+                        <strong>ИИ-ферма для перепелов</strong>
+                        <div>Автоматизированная птицефабрика для перепелов-несушек и бройлеров.</div>
+                    </div>
+                    <div class="project-card">
+                        <strong>Утилизация пластика</strong>
+                        <div>Экспериментальная установка — ещё один экологический проект.</div>
+                    </div>
+                    <div class="project-card">
+                        <strong>QUIK-ИИ</strong>
+                        <div>Торговый робот для работы на ММВБ через терминал QUIK.</div>
+                    </div>
+                </div>
+
+                <h3 style="margin: 25px 0 10px; color: var(--accent-color); font-size: 1rem;">Команда</h3>
+                <p style="color: var(--text-main); font-size: 0.95rem; margin: 0;">Идеи и концепции в проектах мои, но реализация всегда шла в команде: инженеры, технологи, патентоведы, научные организации, производственные партнёры и инвесторы. В BSF-проекте к этой модели добавляется профильный биолог.</p>
+
+                <h3 style="margin: 25px 0 10px; color: var(--accent-color); font-size: 1rem;">Почему это даёт уверенность в BSF-решении</h3>
+                <div style="display: grid; gap: 10px; color: var(--text-main); font-size: 0.95rem;">
+                    <div><strong style="color: var(--accent-color);">1.</strong> Каждый проект дошёл до физического оборудования, а не остался презентацией.</div>
+                    <div><strong style="color: var(--accent-color);">2.</strong> Интеллектуальная собственность защищена патентами, полезными моделями, ноу-хау и заявками PCT.</div>
+                    <div><strong style="color: var(--accent-color);">3.</strong> BSF-решение выросло из системного сравнения птицефабрики и BSF-фермы, а не из энтомологической гипотезы.</div>
+                </div>
+
+                <h3 style="margin: 25px 0 10px; color: var(--accent-color); font-size: 1rem;">Пилот на птицефабрике</h3>
+                <div class="photo-grid">
+                    <figure>
+                        <img src="../assets/img/ch06/experience/photo-03-workshop-2022.webp" alt="Монтаж и наладка технологической линии" loading="lazy">
+                        <figcaption>Монтаж и наладка линии, 2022.</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="../assets/img/ch06/experience/photo-01-pilot-line.webp" alt="Сушилка с циклоном" loading="lazy">
+                        <figcaption>Сушилка с циклоном, 2023.</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="../assets/img/ch06/experience/photo-04-panel.webp" alt="Главный пульт АСУ" loading="lazy">
+                        <figcaption>Главный пульт АСУ, 2023.</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="../assets/img/ch06/experience/photo-02-commissioning.webp" alt="Пусконаладка оборудования на площадке птицефабрики" loading="lazy">
+                        <figcaption>Пусконаладка на площадке птицефабрики, 2024.</figcaption>
+                    </figure>
+                </div>
+                <p style="color: var(--text-dim); font-size: 0.82rem; margin-top: 10px;">Это промышленный пилот на действующем предприятии, а не лабораторная установка. Фотографии — личный архив автора, публикуются с его разрешения.</p>
+
+                <h3 style="margin: 25px 0 10px; color: var(--accent-color); font-size: 1rem;">Видео</h3>
+                <div class="video-grid">
+                    <a class="video-card" href="https://rutube.ru/video/48cf48f9655ce56fede5c8cc8f1b8660/" target="_blank" rel="noopener noreferrer">
+                        <strong>Помёт и илы очистных сооружений</strong>
+                        <span>Rutube · 4:49 · 26.01.2025</span>
+                    </a>
+                    <a class="video-card" href="https://www.youtube.com/watch?v=Pxfin-KhlBQ" target="_blank" rel="noopener noreferrer">
+                        <strong>Опытный образец оборудования</strong>
+                        <span>YouTube · мощность более 30 кВт</span>
+                    </a>
+                </div>
+
+                <h3 style="margin: 25px 0 10px; color: var(--accent-color); font-size: 1rem;">Ссылки</h3>
+                <p style="color: var(--text-main); font-size: 0.92rem; margin: 0;">
+                    <a href="http://sibprime.ru/" target="_blank" rel="noopener noreferrer" style="color: var(--accent-color); text-decoration: underline;">Агрохолдинг «Сибирский Премьер»</a> ·
+                    <a href="http://www.commercializationreactor.com/" target="_blank" rel="noopener noreferrer" style="color: var(--accent-color); text-decoration: underline;">Реактор Коммерциализации</a> ·
+                    <a href="http://empyrio.com/" target="_blank" rel="noopener noreferrer" style="color: var(--accent-color); text-decoration: underline;">Empyrio</a>
+                </p>
+            </div>
+        </div>
+
+<div class="modal-overlay" id="farmComparisonModal" role="dialog" aria-modal="true" aria-labelledby="farmComparisonTitle" onclick="hideModal('farmComparisonModal')">
+            <div class="modal-content" onclick="event.stopPropagation()">
+                <button type="button" class="modal-close" aria-label="Закрыть окно" onclick="hideModal('farmComparisonModal')"></button>
+                <h2 id="farmComparisonTitle" style="margin-top: 0; color: var(--accent-color); font-size: 1.45rem; letter-spacing: 0.4px;">Птицефабрика и BSF: сходство, которое дало идею</h2>
+                <p style="color: var(--text-dim); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.08em; margin: 6px 0 15px;">Разные биообъекты — общая архитектура производства</p>
+                <p style="color: var(--text-main); font-size: 1.1rem; margin-bottom: 5px;">Сходство не в биологии, а в промышленной организации: обе системы непрерывно воспроизводят биоматериал, управляют средой, синхронизируют партии и перерабатывают остатки.</p>
+                <p style="color: var(--text-dim); font-size: 0.9rem; margin-bottom: 10px;">Одноимённые по смыслу этапы расположены на одном уровне.</p>
+
+                <div class="bsf-diagram">
+                    <svg viewBox="0 0 900 610" role="img" aria-label="Сравнение этапов бройлерной птицефабрики и BSF-фермы: шесть пар этапов на одном уровне">
+                        <defs>
+                            <marker id="fcArrowGray" markerWidth="10" markerHeight="8" refX="8" refY="4" orient="auto">
+                                <path d="M0,0 L10,4 L0,8 Z" fill="#9aa0a6"/>
+                            </marker>
+                            <marker id="fcArrowGreen" markerWidth="10" markerHeight="8" refX="8" refY="4" orient="auto">
+                                <path d="M0,0 L10,4 L0,8 Z" fill="#a3ff47"/>
+                            </marker>
+                        </defs>
+
+                        <text x="200" y="24" text-anchor="middle" fill="#9aa0a6" font-size="13" font-weight="700">Бройлерная птицефабрика</text>
+                        <text x="700" y="24" text-anchor="middle" fill="#a3ff47" font-size="13" font-weight="700">BSF-ферма</text>
+
+                        <g stroke="#9aa0a6" stroke-width="1.4" marker-end="url(#fcArrowGray)">
+                            <line x1="200" y1="134" x2="200" y2="146"/>
+                            <line x1="200" y1="224" x2="200" y2="236"/>
+                            <line x1="200" y1="314" x2="200" y2="326"/>
+                            <line x1="200" y1="404" x2="200" y2="416"/>
+                            <line x1="200" y1="494" x2="200" y2="506"/>
+                        </g>
+                        <g stroke="#a3ff47" stroke-width="1.4" marker-end="url(#fcArrowGreen)">
+                            <line x1="700" y1="134" x2="700" y2="146"/>
+                            <line x1="700" y1="224" x2="700" y2="236"/>
+                            <line x1="700" y1="314" x2="700" y2="326"/>
+                            <line x1="700" y1="404" x2="700" y2="416"/>
+                            <line x1="700" y1="494" x2="700" y2="506"/>
+                        </g>
+
+                        <g stroke="#6f7478" stroke-width="1" stroke-dasharray="3 4" opacity="0.7">
+                            <line x1="374" y1="96" x2="526" y2="96"/>
+                            <line x1="374" y1="186" x2="526" y2="186"/>
+                            <line x1="374" y1="276" x2="526" y2="276"/>
+                            <line x1="374" y1="366" x2="526" y2="366"/>
+                            <line x1="374" y1="456" x2="526" y2="456"/>
+                            <line x1="374" y1="546" x2="526" y2="546"/>
+                        </g>
+                        <g fill="#a3ff47" font-size="15" text-anchor="middle" font-weight="700">
+                            <text x="450" y="101">=</text>
+                            <text x="450" y="191">=</text>
+                            <text x="450" y="281">=</text>
+                            <text x="450" y="371">=</text>
+                            <text x="450" y="461">=</text>
+                            <text x="450" y="551">=</text>
+                        </g>
+
+                        <g fill="rgba(255,255,255,0.02)" stroke="#9aa0a6" stroke-width="1.4">
+                            <rect x="30" y="60" width="340" height="72" rx="10"/>
+                            <rect x="30" y="150" width="340" height="72" rx="10"/>
+                            <rect x="30" y="240" width="340" height="72" rx="10"/>
+                            <rect x="30" y="330" width="340" height="72" rx="10"/>
+                            <rect x="30" y="420" width="340" height="72" rx="10"/>
+                            <rect x="30" y="510" width="340" height="72" rx="10"/>
+                        </g>
+                        <g fill="rgba(163,255,71,0.06)" stroke="#a3ff47" stroke-width="1.4">
+                            <rect x="530" y="60" width="340" height="72" rx="10"/>
+                            <rect x="530" y="150" width="340" height="72" rx="10"/>
+                            <rect x="530" y="240" width="340" height="72" rx="10"/>
+                            <rect x="530" y="330" width="340" height="72" rx="10"/>
+                            <rect x="530" y="420" width="340" height="72" rx="10"/>
+                            <rect x="530" y="510" width="340" height="72" rx="10"/>
+                        </g>
+
+                        <g text-anchor="middle">
+                            <text x="200" y="90" fill="#e0e0e0" font-size="13" font-weight="700">Родительское стадо</text>
+                            <text x="200" y="110" fill="#9aa0a6" font-size="10.5">воспроизводство поголовья</text>
+                            <text x="200" y="180" fill="#e0e0e0" font-size="13" font-weight="700">Инкубаторий</text>
+                            <text x="200" y="200" fill="#9aa0a6" font-size="10.5">инкубация и раннее выращивание</text>
+                            <text x="200" y="270" fill="#e0e0e0" font-size="13" font-weight="700">Птичники откорма</text>
+                            <text x="200" y="290" fill="#9aa0a6" font-size="10.5">микроклимат и кормление</text>
+                            <text x="200" y="360" fill="#e0e0e0" font-size="13" font-weight="700">Первичная переработка</text>
+                            <text x="200" y="380" fill="#9aa0a6" font-size="10.5">убой и разделка</text>
+                            <text x="200" y="450" fill="#e0e0e0" font-size="13" font-weight="700">Переработка продукции</text>
+                            <text x="200" y="470" fill="#9aa0a6" font-size="10.5">мясо и субпродукты</text>
+                            <text x="200" y="540" fill="#e0e0e0" font-size="13" font-weight="700">Переработка помёта</text>
+                            <text x="200" y="560" fill="#9aa0a6" font-size="10.5">удобрение и энергия</text>
+
+                            <text x="700" y="90" fill="#e0e0e0" font-size="13" font-weight="700">Маточное стадо BSF</text>
+                            <text x="700" y="110" fill="#9aa0a6" font-size="10.5">воспроизводство биоматериала</text>
+                            <text x="700" y="180" fill="#e0e0e0" font-size="13" font-weight="700">Инкубация и nursery</text>
+                            <text x="700" y="200" fill="#9aa0a6" font-size="10.5">ясельник и молодняк</text>
+                            <text x="700" y="270" fill="#e0e0e0" font-size="13" font-weight="700">Модули откорма</text>
+                            <text x="700" y="290" fill="#9aa0a6" font-size="10.5">микроклимат и дозированное кормление</text>
+                            <text x="700" y="360" fill="#e0e0e0" font-size="13" font-weight="700">Сепарация и сбор</text>
+                            <text x="700" y="380" fill="#9aa0a6" font-size="10.5">личинка и фрасс</text>
+                            <text x="700" y="450" fill="#e0e0e0" font-size="13" font-weight="700">Производство БЛК</text>
+                            <text x="700" y="470" fill="#9aa0a6" font-size="10.5">сушка, жир, мука</text>
+                            <text x="700" y="540" fill="#e0e0e0" font-size="13" font-weight="700">Переработка фрасса</text>
+                            <text x="700" y="560" fill="#9aa0a6" font-size="10.5">удобрение и энергия</text>
+                        </g>
+                    </svg>
+                </div>
+
+                <h3 style="margin: 25px 0 10px; color: var(--accent-color); font-size: 1rem;">Сравнение по этапам</h3>
+                <div class="compare-wrap">
+                    <table class="compare-table">
+                        <thead>
+                            <tr>
+                                <th>Бройлерная птицефабрика</th>
+                                <th>BSF-производство</th>
+                                <th>Переносимый принцип</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Родительское стадо</td><td>Маточное стадо BSF</td><td>Управляемое воспроизводство исходного биоматериала</td></tr>
+                            <tr><td>Сбор инкубационного яйца</td><td>Сбор яйцекладок BSF</td><td>Учёт количества и качества репродуктивного материала</td></tr>
+                            <tr><td>Инкубаторий</td><td>Инкубация яйца BSF</td><td>Управление температурой, влажностью и синхронностью вывода</td></tr>
+                            <tr><td>Цыплята суточного возраста</td><td>Неонаты и молодая личинка</td><td>Стандартизация стартового биоматериала</td></tr>
+                            <tr><td>Участок раннего выращивания</td><td>Nursery</td><td>Специальные режимы кормления и микроклимата</td></tr>
+                            <tr><td>Птичники откорма</td><td>Модули откорма BSF</td><td>Изолированные производственные партии</td></tr>
+                            <tr><td>Клеточные батареи</td><td>Каркас с технологическими модулями</td><td>Многоярусное использование объёма</td></tr>
+                            <tr><td>Клетка или секция</td><td>Ростовая ёмкость</td><td>Локальная единица размещения биомассы</td></tr>
+                            <tr><td>Комбикормовый участок</td><td>Подготовка субстрата</td><td>Рецептура, измельчение, смешивание и дозирование</td></tr>
+                            <tr><td>Кормораздача</td><td>Дозированное кормление личинки</td><td>Равномерность питания и управление рационом</td></tr>
+                            <tr><td>Вентиляция и отопление</td><td>Управление температурой, влажностью и газовым составом</td><td>Стабилизация среды обитания</td></tr>
+                            <tr><td>Взвешивание птицы</td><td>Контроль массы и активности личинки</td><td>Прогноз готовности партии</td></tr>
+                            <tr><td>Оборот стада</td><td>Оборот партий личинки</td><td>Планирование загрузки производственных мощностей</td></tr>
+                            <tr><td>Убой и переработка</td><td>Сепарация, бланширование, сушка и измельчение</td><td>Превращение живой биомассы в товарный продукт</td></tr>
+                            <tr><td>Переработка помёта</td><td>Обработка фрасса</td><td>Получение удобрения и энергетического продукта</td></tr>
+                            <tr><td>Котельная и энергосистема</td><td>Сжигатель, теплообменник и рекуперация</td><td>Внутреннее энергетическое обеспечение</td></tr>
+                            <tr><td>Ветеринарно-санитарный контроль</td><td>Биобезопасность и контроль микробиологии</td><td>Разделение партий, мойка, санитарная обработка</td></tr>
+                            <tr><td>Производственная диспетчеризация</td><td>PLC/SCADA/MES и AI-агенты</td><td>Управление процессами на основе данных</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div style="margin-top: 20px; padding: 20px; border-radius: 15px; background: rgba(255,255,255,0.03); border-left: 3px solid var(--accent-color);">
+                    <strong style="color: var(--accent-color);">Вывод:</strong> совпадает архитектура производства — воспроизводство, выращивание, переработка, обращение с остатками и энергетика. Различаются биология и оборудование. Именно это позволило перенести промышленную логику птицефабрики на BSF и поставить гипотезу о смене производственной единицы.
+                </div>
+
+                <p style="color: var(--text-dim); font-size: 0.82rem; margin-top: 20px;">Схемы построены по технологической карте проекта; таблица — по сравнительному анализу проекта (bsf-team-report.md). Сходство отражает промышленную архитектуру, а не биологию: птица и личинка — разные объекты, и биологические режимы BSF требуют отдельной валидации.</p>
+            </div>
+        </div>
+
+<div class="modal-overlay" id="bsfParadoxModal" role="dialog" aria-modal="true" aria-labelledby="bsfParadoxTitle" onclick="hideModal('bsfParadoxModal')">
+            <div class="modal-content" onclick="event.stopPropagation()">
+                <button type="button" class="modal-close" aria-label="Закрыть окно" onclick="hideModal('bsfParadoxModal')"></button>
+                <h2 id="bsfParadoxTitle" style="margin-top: 0; color: var(--accent-color); font-size: 1.45rem; letter-spacing: 0.4px;">Парадокс отрасли BSF</h2>
+                <p style="color: var(--text-dim); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.08em; margin: 6px 0 15px;">Премиальные рынки вместо массового</p>
+                <p style="color: var(--text-main); font-size: 1.1rem; margin-bottom: 5px;">Отрасль научилась делать продукт, но не научилась делать его дешёвым. Поэтому продаёт там, где цена вторична.</p>
+
+                <h3 style="margin: 25px 0 10px; color: var(--accent-color); font-size: 1rem;">Где работает отрасль</h3>
+                <p style="color: var(--text-dim); font-size: 0.92rem; margin: 0 0 5px;">Премиальные сегменты, где платят за свойства, а не за тонну.</p>
+                <div class="compare-wrap">
+                    <table class="compare-table">
+                        <thead>
+                            <tr>
+                                <th>Сегмент</th>
+                                <th>Продукт</th>
+                                <th>Почему премиальный</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Корма для домашних животных</td><td>сушёная личинка, мука, жир</td><td>готовность платить за альтернативный белок, высокая маржа, меньше ценовое давление</td></tr>
+                            <tr><td>Косметика и БАДы</td><td>липиды, хитин и хитозан, меланин</td><td>высокая добавленная стоимость при малых объёмах</td></tr>
+                            <tr><td>Премиальная аквакультура</td><td>мука и жир для лосося и креветки</td><td>ограниченные объёмы, высокая цена конечного продукта</td></tr>
+                            <tr><td>Экзотические животные и рептилии</td><td>сушёная личинка</td><td>нишевый спрос, цена не главный критерий выбора</td></tr>
+                            <tr><td>Органоминеральные удобрения</td><td>фрасс, гранулы, биостимуляторы</td><td>премия за органику и замкнутый цикл</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3 style="margin: 25px 0 10px; color: var(--accent-color); font-size: 1rem;">Почему только премиум</h3>
+                <p style="color: var(--text-main); font-size: 0.95rem; margin: 0;">Массовый рынок — это рыбная мука и соевый шрот: огромные объёмы, отлаженная логистика и покупатель, чувствительный к цене. Чтобы войти, БЛК должен стоить не дороже. Пока не получается: при почти бесплатном сырье затраты уходят в труд, энергию и оборудование. Отсюда парадокс: сырья много и оно дешёвое, а продукт остаётся дорогим.</p>
+
+                <div style="margin-top: 20px; padding: 20px; border-radius: 15px; background: rgba(255,255,255,0.03); border-left: 3px solid var(--accent-color);">
+                    <strong style="color: var(--accent-color);">Парадокс:</strong> бесплатное сырьё плюс дорогое производство равно премиальные рынки вместо массовых.
+                </div>
+
+                <h3 style="margin: 25px 0 10px; color: var(--accent-color); font-size: 1rem;">Анализ выявил слабое звено — лоток</h3>
+                <p style="color: var(--text-main); font-size: 0.95rem; margin: 0 0 10px;">Попытка уйти от ручного труда внутри лоточной технологии приводит к другому: вокруг лотков выстраивается система автоматизации на основе общепромышленных роботов, конвейеров и шаттлов. Она добавляет капитальные затраты и вторичные расходы на обслуживание, но саму производственную единицу не меняет.</p>
+                <p style="color: var(--text-main); font-size: 0.95rem; margin: 0 0 10px;">Отсюда карикатурная аналогия — снова по линии птицефабрики. Представьте, что примитивный деревенский курятник решили автоматизировать, не трогая его конструкцию: вокруг него бегает толпа современных антропоморфных роботов с вёдрами — комбикорма, воды, помёта. Технически возможно, экономически абсурдно: курятник остался курятником, а стоимость выросла.</p>
+                <p style="color: var(--text-main); font-size: 0.95rem; margin: 0;">С лотком происходит то же самое: он остаётся пассивной ёмкостью, вокруг которой движется автоматика. Вывод для современной BSF-фермы — уходить от лотка и менять саму производственную единицу.</p>
+
+                <h3 style="margin: 25px 0 10px; color: var(--accent-color); font-size: 1rem;">Синтез нашёл замену лотку</h3>
+                <p style="color: var(--text-main); font-size: 0.95rem; margin: 0;">Синтез промышленной логики птицефабрики и техпроцесса BSF дал новое техническое решение — активный модуль выращивания. Интеллектуальная собственность на него ещё не оформлена, поэтому до патентования технические подробности раскрываются только после подписания NDA.</p>
+
+                <p style="color: var(--text-dim); font-size: 0.82rem; margin-top: 20px;">Оценка проекта; сегменты и ценовые ориентиры — по отраслевым обзорам 2026 года.</p>
+            </div>
+        </div>
+        <!-- CHAPTER-MODALS:END -->
+        <div id="cover-host"></div>
+        <div class="toc" id="mainTOC"></div>
+    </div>
+
+    <!-- CHAPTER-DATA:START -->
+    <!-- Данные главы: единственный источник правды. Их читают страница главы и сборка книги.
+         order — порядок в книге (можно ставить 3.5, чтобы вставить главу между 3 и 4). -->
+    <script type="application/json" id="chapter-data">
+    {
+      "order": 6,
+      "title": "Традиционные решения повышения рентабельности BSF-ферм работают плохо.\nМы нашли принципиально новое решение внутри техпроцесса культивирования BSF.",
+      "ready": true,
+      "content": [
+        {
+          "title": "",
+          "theses": [
+            {
+              "text": "Кто такие «Мы/Я» и откуда уверенность в найденном решении.",
+              "links": [
+                {
+                  "label": "Кто такие «Мы/Я»",
+                  "modal": "whoWeAreModal"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "",
+          "theses": [
+            {
+              "text": "Найти новое решение для BSF-ферм нам позволило (как ни странно) успешное решение проблемы помёта для птицефабрик.",
+              "links": [
+                {
+                  "label": "для птицефабрик",
+                  "modal": "farmComparisonModal"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "",
+          "theses": [
+            {
+              "text": "Сперва возник вопрос. Почему при схожести обоих техпроцессов – птицефабрики вполне себе бизнес, а BSF-фермы – до сих пор нет?",
+              "links": [
+                {
+                  "label": "нет",
+                  "modal": "bsfParadoxModal"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+    <!-- CHAPTER-DATA:END -->
+
+    <script src="../cover/cover.js"></script>
+    <script src="../_shared/shell.js"></script>
+</body>
+</html>

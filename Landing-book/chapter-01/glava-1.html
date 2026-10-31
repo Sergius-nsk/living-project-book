@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BSF-фермы | Глава 1</title>
+    <link rel="stylesheet" href="../_shared/shell.css">
+    <link rel="stylesheet" href="../cover/cover.css">
+</head>
+<body data-book-title="Роботизированные BSF-фермы" data-book-subtitle="Трансформация пищевых отходов в высокорентабельный протеин">
+
+    <div class="book-container">
+<!-- CHAPTER-MODALS:START -->
+        <!-- Окно: реальность отходов -->
+        <div class="modal-overlay" id="wasteModal" role="dialog" aria-modal="true" aria-labelledby="wasteTitle" onclick="hideModal('wasteModal')">
+            <div class="modal-content" onclick="event.stopPropagation()">
+                <button type="button" class="modal-close" aria-label="Закрыть окно" onclick="hideModal('wasteModal')"></button>
+                <h2 id="wasteTitle" style="margin-top: 0; color: var(--accent-color); font-size: 1.45rem; letter-spacing: 0.4px;">Реальность отходов</h2>
+                <p style="color: var(--text-dim); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.08em; margin: 6px 0 15px;">Масштабы загрязнения, которые мы пытаемся остановить</p>
+                <div class="project-grid" style="margin-bottom: 15px;">
+                    <div class="project-card">
+                        <strong>1,05 млрд т</strong>
+                        <div>пищевых отходов в мире в 2022 году.</div>
+                    </div>
+                    <div class="project-card">
+                        <strong>19%</strong>
+                        <div>еды, доступной потребителю, выбрасывается.</div>
+                    </div>
+                    <div class="project-card">
+                        <strong>8–10%</strong>
+                        <div>мировых выбросов парниковых газов связано с потерями и отходами еды.</div>
+                    </div>
+                </div>
+                <div class="waste-gallery">
+                    <div class="waste-item">
+                        <img src="../assets/img/ch01/waste-tomato-dump.webp" alt="Свалка пищевых отходов: выброшенная продукция" loading="lazy">
+                        <div class="waste-caption">Продукция, не дошедшая до потребителя</div>
+                    </div>
+                    <div class="waste-item">
+                        <img src="../assets/img/ch01/waste-food-bin.webp" alt="Пищевые отходы в городском контейнере" loading="lazy">
+                        <div class="waste-caption">Пищевые отходы в городской среде</div>
+                    </div>
+                </div>
+                <p style="color: var(--text-dim); font-size: 0.82rem; margin-top: 15px;">Источник цифр: <a href="https://www.unep.org/resources/publication/food-waste-index-report-2024" target="_blank" rel="noopener noreferrer" style="color: var(--accent-color); text-decoration: underline;">UNEP Food Waste Index Report 2024</a>. Фотографии — архив автора проекта.</p>
+            </div>
+        </div>
+
+        <!-- Окно: рециклинг и циркулярная экономика -->
+        <div class="modal-overlay" id="recycleModal" role="dialog" aria-modal="true" aria-labelledby="recycleTitle" onclick="hideModal('recycleModal')">
+            <div class="modal-content" onclick="event.stopPropagation()">
+                <button type="button" class="modal-close" aria-label="Закрыть окно" onclick="hideModal('recycleModal')"></button>
+                <h2 id="recycleTitle" style="margin-top: 0; color: var(--accent-color); font-size: 1.45rem; letter-spacing: 0.4px;">Рециклинг и циркулярная экономика</h2>
+                <p style="color: var(--text-dim); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.08em; margin: 6px 0 15px;">Возвращение отходов к жизни</p>
+                <p style="color: var(--text-main); font-size: 1.05rem; margin-bottom: 5px;">Превращение бывшего полезного в новое полезное.</p>
+                <div class="project-grid" style="margin-top: 15px;">
+                    <div class="project-card">
+                        <strong>Технический рециклинг</strong>
+                        <div>Переработка пластика, металлов, стекла.</div>
+                    </div>
+                    <div class="project-card">
+                        <strong>Биологический рециклинг</strong>
+                        <div>Биоконверсия органики (BSF), компостирование.</div>
+                    </div>
+                    <div class="project-card">
+                        <strong>Промышленные модели</strong>
+                        <div>Waste-first — фокус на утилизации; feed-first — фокус на продукте.</div>
+                    </div>
+                </div>
+
+                <h3 style="margin: 20px 0 8px; color: var(--accent-color); font-size: 1rem;">Иерархия обращения с отходами</h3>
+                <div class="chain">
+                    <span class="chain-step">Rethink</span>
+                    <span class="chain-arrow">→</span>
+                    <span class="chain-step">Reduce</span>
+                    <span class="chain-arrow">→</span>
+                    <span class="chain-step">Reuse</span>
+                    <span class="chain-arrow">→</span>
+                    <span class="chain-step">Recycle</span>
+                    <span class="chain-arrow">→</span>
+                    <span class="chain-step" style="border-width: 2px; background: rgba(163,255,71,0.18);">BSF</span>
+                    <span class="chain-arrow">→</span>
+                    <span class="chain-step">Recover</span>
+                </div>
+                <p style="color: var(--text-dim); font-size: 0.85rem; margin: 5px 0 0;">Биоконверсия BSF стоит между переработкой и восстановлением: из отходов получают продукт, а остаток — энергию и удобрение.</p>
+
+                <div class="compare-wrap" style="margin-top: 15px;">
+                    <table class="compare-table hierarchy-table">
+                        <thead>
+                            <tr><th>Шаг</th><th>Что значит</th><th>Мини-пример</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Rethink</td><td>переосмыслить: не создавать отход в принципе</td><td>многоразовая тара вместо одноразовой</td></tr>
+                            <tr><td>Reduce</td><td>сократить количество отходов на единицу продукции</td><td>продажа продуктов без избыточной упаковки</td></tr>
+                            <tr><td>Reuse</td><td>использовать вещь повторно без переработки</td><td>возвратная тара; ремонт вместо замены</td></tr>
+                            <tr><td>Recycle</td><td>переработать в материал</td><td>макулатура — в новую бумагу, металлолом — в металл</td></tr>
+                            <tr><td>BSF</td><td>биоконверсия органики личинкой</td><td>пищевые отходы — в БЛК и фрасс</td></tr>
+                            <tr><td>Recover</td><td>извлечь энергию или питательные вещества</td><td>сжигание с получением тепла; фрасс — в удобрение</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p style="color: var(--text-dim); font-size: 0.82rem; margin-top: 8px;">Порядок — от предотвращения отходов к их восстановлению: чем выше шаг, тем меньше ресурсов теряется.</p>
+
+                <div class="bsf-diagram" style="margin-top: 15px;">
+                    <svg viewBox="0 0 840 260" role="img" aria-label="Замкнутый цикл: пищевые отходы — биоконверсия BSF — БЛК — фрасс — удобрение и возврат в почву">
+                        <defs>
+                            <marker id="recArrow" markerWidth="10" markerHeight="8" refX="8" refY="4" orient="auto">
+                                <path d="M0,0 L10,4 L0,8 Z" fill="#a3ff47"/>
+                            </marker>
+                        </defs>
+
+                        <g stroke="#a3ff47" stroke-width="1.4" marker-end="url(#recArrow)">
+                            <line x1="202" y1="86" x2="229" y2="86"/>
+                            <line x1="407" y1="86" x2="434" y2="86"/>
+                            <line x1="612" y1="86" x2="639" y2="86"/>
+                        </g>
+
+                        <g fill="rgba(163,255,71,0.08)" stroke="#a3ff47" stroke-width="1.4">
+                            <rect x="30" y="50" width="170" height="72" rx="10"/>
+                            <rect x="235" y="50" width="170" height="72" rx="10"/>
+                            <rect x="440" y="50" width="170" height="72" rx="10"/>
+                            <rect x="645" y="50" width="170" height="72" rx="10"/>
+                        </g>
+
+                        <g text-anchor="middle">
+                            <text x="115" y="80" fill="#e0e0e0" font-size="13" font-weight="700">Пищевые отходы</text>
+                            <text x="115" y="100" fill="#9aa0a6" font-size="10.5">ТКО, фудкорты, производство</text>
+                            <text x="320" y="80" fill="#e0e0e0" font-size="13" font-weight="700">Биоконверсия BSF</text>
+                            <text x="320" y="100" fill="#9aa0a6" font-size="10.5">переработка органики</text>
+                            <text x="525" y="80" fill="#e0e0e0" font-size="13" font-weight="700">БЛК</text>
+                            <text x="525" y="100" fill="#9aa0a6" font-size="10.5">белок и жир для кормов</text>
+                            <text x="730" y="80" fill="#e0e0e0" font-size="13" font-weight="700">Фрасс</text>
+                            <text x="730" y="100" fill="#9aa0a6" font-size="10.5">остаток переработки</text>
+                        </g>
+
+                        <path d="M730,122 L730,195 Q730,210 715,210 L130,210 Q115,210 115,195 L115,128" fill="none" stroke="#9aa0a6" stroke-width="1.4" stroke-dasharray="4 4" marker-end="url(#recArrow)"/>
+                        <text x="420" y="198" text-anchor="middle" fill="#9aa0a6" font-size="11" style="paint-order: stroke; stroke: #050506; stroke-width: 4px;">фрасс → удобрение → возврат питательных веществ в почву</text>
+                    </svg>
+                </div>
+
+                <h3 style="margin: 20px 0 10px; color: var(--accent-color); font-size: 1rem;">Мировые лидеры успеха</h3>
+                <div class="project-grid">
+                    <div class="project-card">
+                        <strong><a href="https://www.entobel.com" target="_blank" rel="noopener noreferrer" style="color: var(--accent-color); text-decoration: underline;">Entobel</a>, Вьетнам</strong>
+                        <div>Мегазаводы с вертикальным выращиванием.</div>
+                    </div>
+                    <div class="project-card">
+                        <strong><a href="https://innovafeed.com" target="_blank" rel="noopener noreferrer" style="color: var(--accent-color); text-decoration: underline;">Innovafeed</a>, Франция</strong>
+                        <div>Симбиоз с агропредприятиями.</div>
+                    </div>
+                    <div class="project-card">
+                        <strong><a href="https://protix.com" target="_blank" rel="noopener noreferrer" style="color: var(--accent-color); text-decoration: underline;">Protix</a>, Нидерланды</strong>
+                        <div>Высокая степень автоматизации процессов.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- CHAPTER-MODALS:END -->
+        <div id="cover-host"></div>
+        <div class="toc" id="mainTOC"></div>
+    </div>
+
+    <!-- CHAPTER-DATA:START -->
+    <!-- Данные главы: единственный источник правды. Их читают страница главы и сборка книги.
+         order — порядок в книге (можно ставить 3.5, чтобы вставить главу между 3 и 4). -->
+    <script type="application/json" id="chapter-data">
+    {
+      "title": "Человеческая деятельность серьёзно загрязняет нашу планету. Выход – рециклинг.",
+      "ready": true,
+      "content": [
+        {
+          "title": "Определение отходов",
+          "theses": [
+            {
+              "text": "Отходы — это бывшие в употреблении и пришедшие в негодность вещи, либо продукты, сопутствующие нужным вещам.",
+              "links": [
+                {
+                  "label": "Отходы",
+                  "modal": "wasteModal"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Концепция возврата к жизни",
+          "theses": [
+            "Если отходы — это бывшие нужные вещи, то можно попробовать «вернуть их к жизни» — снова сделать из них нужные вещи."
+          ]
+        },
+        {
+          "title": "Циркулярная экономика",
+          "theses": [
+            {
+              "text": "Из этого тезиса возникла и развивается циркулярная экономика (рециклинг).",
+              "links": [
+                {
+                  "label": "рециклинг",
+                  "modal": "recycleModal"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "order": 1
+    }
+    </script>
+    <!-- CHAPTER-DATA:END -->
+
+    <script src="../cover/cover.js"></script>
+    <script src="../_shared/shell.js"></script>
+</body>
+</html>
