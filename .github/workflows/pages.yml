@@ -35,11 +35,21 @@ jobs:
       - name: Assemble book
         run: node scripts/assemble-book.js --book=Landing-book --write
 
+      # Сайт: книга в корне, презентация к защите — в папке presentation.
+      - name: Prepare site
+        run: |
+          mkdir -p _site
+          cp -r Landing-book/. _site/
+          if [ -d presentation ]; then
+            mkdir -p _site/presentation
+            cp -r presentation/. _site/presentation/
+          fi
+
       - uses: actions/configure-pages@v5
 
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: Landing-book
+          path: _site
 
   deploy:
     needs: build

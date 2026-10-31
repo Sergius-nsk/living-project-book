@@ -117,9 +117,11 @@ class CDP {
         // 1. Обложка и закрытое содержание.
         await shot('01-cover.png');
 
-        // 2. Содержание.
+        // 2. Содержание: прокручиваем к списку глав, чтобы он попал в кадр целиком.
         await cdp.eval(`document.getElementById('bookCover').click()`);
         await sleep(500);
+        await cdp.eval(`window.scrollTo(0, document.getElementById('mainTOC').getBoundingClientRect().top + window.scrollY - 40)`);
+        await sleep(400);
         await shot('02-toc.png');
 
         // 3. Раскрытая глава.
