@@ -44,7 +44,7 @@
 ## Презентация к защите
 
 - [Открыть презентацию в браузере](https://sergius-nsk.github.io/living-project-book/presentation/defense-living-project-book.html) —
-  9 слайдов, управление стрелками, `F` — полный экран.
+  11 слайдов, управление стрелками, `F` — полный экран.
 - [Скачать PDF](https://sergius-nsk.github.io/living-project-book/presentation/defense-living-project-book.pdf) —
   та же презентация для отправки.
 

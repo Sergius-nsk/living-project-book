@@ -362,6 +362,45 @@
     .check { font-size: 1.65cqw; line-height: 1.4; color: var(--dim); display: flex; gap: 1cqw; }
     .check::before { content: '✓'; color: var(--accent); }
 
+    /* Кто что делает */
+    .split {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2.2cqw;
+        flex: 1;
+        align-content: center;
+    }
+    .split-col {
+        border: 1px solid var(--line);
+        border-radius: 1.2cqw;
+        padding: 2.2cqw;
+        background: var(--surface);
+    }
+    .split-col h3 {
+        margin: 0 0 1.2cqw;
+        font-size: 2cqw;
+        color: var(--accent);
+        font-weight: 650;
+    }
+    .split-col ul {
+        margin: 0;
+        padding-left: 1.6cqw;
+        display: flex;
+        flex-direction: column;
+        gap: 0.9cqw;
+        font-size: 1.55cqw;
+        line-height: 1.4;
+        color: var(--dim);
+    }
+    .split-col li::marker { color: var(--accent); }
+    .quote {
+        margin-top: 2cqw;
+        border-left: 2px solid var(--accent);
+        padding-left: 1.4cqw;
+        font-size: 1.9cqw;
+        line-height: 1.4;
+    }
+
     /* Планы */
     .plans { display: flex; flex-direction: column; gap: 2cqw; flex: 1; justify-content: center; }
     .plan {
@@ -522,7 +561,35 @@
             </div>
         </section>
 
-        <!-- 4. Как устроено -->
+        <!-- 4. Как использовал Claude Code -->
+        <section class="slide">
+            <div class="label">Как использовал Claude Code</div>
+            <h2>Задачу ставил я —<br>рутину делал агент</h2>
+            <div class="split">
+                <div class="split-col">
+                    <h3>Агент</h3>
+                    <ul>
+                        <li>каркас книги и модальных окон;</li>
+                        <li>разбиение материалов на главы;</li>
+                        <li>скрипты сборки, упаковки и проверки;</li>
+                        <li>перенос и пересборка содержимого.</li>
+                    </ul>
+                </div>
+                <div class="split-col">
+                    <h3>Я</h3>
+                    <ul>
+                        <li>содержание и факты;</li>
+                        <li>структура книги и приоритеты;</li>
+                        <li>решения, что оставить и что переделать;</li>
+                        <li>проверка результата.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="quote">Разговор с инструментом на языке задачи, а не синтаксиса.</div>
+            <div class="footer"><span>Не генерация кода, а совместная работа над проектом.</span></div>
+        </section>
+
+        <!-- 5. Как устроено -->
         <section class="slide">
             <div class="label">Как устроено</div>
             <h2>Книга собирается, а не пишется</h2>
@@ -551,7 +618,7 @@
             <div class="footer"><span>HTML, CSS, JavaScript, Node.js — без внешних зависимостей.</span></div>
         </section>
 
-        <!-- 5. Демонстрация -->
+        <!-- 6. Демонстрация -->
         <section class="slide">
             <div class="label">Демонстрация</div>
             <h2>Книга в работе</h2>
@@ -564,7 +631,40 @@
             <div class="footer"><span>Ссылки в тексте открывают окна со схемами, таблицами, расчётами и фотографиями.</span></div>
         </section>
 
-        <!-- 6. Результаты -->
+        <!-- 7. Трудности -->
+        <section class="slide">
+            <div class="label">Трудности</div>
+            <h2>Что оказалось сложнее всего</h2>
+            <div class="plans">
+                <div class="plan">
+                    <div class="n">01</div>
+                    <div>
+                        <h3>Новый формат общения</h3>
+                        <p>Перейти от команд к беседе с коллегой-помощником. Опыт со студентами
+                            и коллегами помог, но привыкание всё равно потребовалось.</p>
+                    </div>
+                </div>
+                <div class="plan">
+                    <div class="n">02</div>
+                    <div>
+                        <h3>Проверка результата</h3>
+                        <p>Агент делает уверенно, но проверять нужно: однажды ссылка не отрисовалась
+                            из-за несовпадения слова в тексте и в ссылке.</p>
+                    </div>
+                </div>
+                <div class="plan">
+                    <div class="n">03</div>
+                    <div>
+                        <h3>Выбор инструментов</h3>
+                        <p>Разница между нативными инструментами Anthropic и легкодоступными
+                            оболочками и агрегаторами.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer"><span>Поэтому в книге появилась автоматическая проверка в браузере.</span></div>
+        </section>
+
+        <!-- 8. Результаты -->
         <section class="slide">
             <div class="label">Результат</div>
             <h2>Что получилось</h2>
@@ -584,7 +684,7 @@
             <div class="footer"><span>Сборка, упаковка и проверка — тремя командами.</span></div>
         </section>
 
-        <!-- 7. GitHub -->
+        <!-- 9. GitHub -->
         <section class="slide">
             <div class="label">Открытый код</div>
             <h2>Всё опубликовано</h2>
@@ -607,7 +707,7 @@
             <div class="footer"><span>Проект можно открыть, понять, запустить и показать.</span></div>
         </section>
 
-        <!-- 8. Планы -->
+        <!-- 10. Планы -->
         <section class="slide">
             <div class="label">Планы</div>
             <h2>Что дальше</h2>
@@ -639,7 +739,7 @@
             <div class="footer"><span>Книга не заканчивается — она переиздаётся.</span></div>
         </section>
 
-        <!-- 9. Финал -->
+        <!-- 11. Финал -->
         <section class="slide final-slide">
             <div class="label">Спасибо</div>
             <h1>Живая книга<br><span class="accent">проекта</span></h1>
@@ -654,7 +754,7 @@
 
         <div class="hud">
             <button id="prev" aria-label="Назад">←</button>
-            <span id="counter">1 / 9</span>
+            <span id="counter">1 / 11</span>
             <button id="next" aria-label="Вперёд">→</button>
         </div>
     </div>
