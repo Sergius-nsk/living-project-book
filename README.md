@@ -43,9 +43,10 @@
 
 ## Презентация к защите
 
-- [Открыть презентацию в браузере](presentation/defense-living-project-book.html) — 9 слайдов,
-  управление стрелками, `F` — полный экран.
-- [Скачать PDF](presentation/defense-living-project-book.pdf) — та же презентация для отправки.
+- [Открыть презентацию в браузере](https://sergius-nsk.github.io/living-project-book/presentation/defense-living-project-book.html) —
+  9 слайдов, управление стрелками, `F` — полный экран.
+- [Скачать PDF](https://sergius-nsk.github.io/living-project-book/presentation/defense-living-project-book.pdf) —
+  та же презентация для отправки.
 
 Файлы лежат в папке `presentation/` и публикуются вместе с книгой на GitHub Pages.
 
