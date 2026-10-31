@@ -26,8 +26,9 @@ const get = (name, fallback) => {
 };
 
 const file = get('file', '');
-if (!file || !fs.existsSync(file)) {
-    console.error('Укажите существующий файл: --file book/index.html');
+const isUrl = /^https?:\/\//i.test(file);
+if (!file || (!isUrl && !fs.existsSync(file))) {
+    console.error('Укажите существующий файл или адрес: --file book/index.html');
     process.exit(1);
 }
 
@@ -98,6 +99,12 @@ const PROBE = `(async () => {
   const wait = (ms) => new Promise(r => setTimeout(r, ms));
   const out = { chapters: [], broken: [] };
 
+  // Ждём загрузку страницы и построение содержания: по сети это дольше, чем локально.
+  for (let i = 0; i < 60; i++) {
+    if (document.readyState === 'complete' && document.querySelector('.chapter-header')) break;
+    await wait(250);
+  }
+
   const cover = document.getElementById('bookCover');
   if (cover) cover.click();
   await wait(250);
@@ -154,7 +161,7 @@ const PROBE = `(async () => {
 
     try {
         await waitDevtools();
-        const url = pathToFileURL(path.resolve(file)).href;
+        const url = isUrl ? file : pathToFileURL(path.resolve(file)).href;
         const created = await fetch(`http://127.0.0.1:${PORT}/json/new?${encodeURIComponent(url)}`, { method: 'PUT' });
         const target = await created.json();
         const cdp = await CDP.connect(target.webSocketDebuggerUrl);
